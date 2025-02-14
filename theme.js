@@ -1,0 +1,155 @@
+const theme = {
+  colors: {
+    "Text+Icon": {
+      "00": "#1d1e30",
+      "01": "#2c2e4a",
+      "02": "#5a5b71",
+      "03": "#888999",
+      "04": "#b6b7c0",
+      "05": "#eeeef0",
+    },
+    Neutral: {
+      White: "#ffffff",
+      "Primary Background": "#fcfdfe",
+      "Base Background": "#f8f9fc",
+      "Secondary Background": "#f1f3f9",
+      Line: "#e1e6ef",
+      "Line Dark": "#3f444d",
+      "Secondary Background Dark": "#23272f",
+      "Primary Background Dark": "#1b1f27",
+      "Base Background Dark": "#0a0d14",
+    },
+    Primary: {
+      Background: "#ff3333",
+      Hover: "#f52d2d",
+      Default: "#be3737",
+      Pressed: "#7a1f1f",
+    },
+    Success: {
+      Background: "#d4f6ee",
+      Hover: "#28d4ab",
+      Default: "#12b28c",
+      Pressed: "#00a17b",
+    },
+    Warning: {
+      Background: "#fff2c9",
+      Hover: "#ff8b32",
+      Default: "#ff6f00",
+      Pressed: "#cb5b04",
+    },
+    Danger: {
+      Background: "#ffe3e3",
+      Hover: "#c81414",
+      Default: "#d22b2b",
+      Pressed: "#a51e1e",
+    },
+    "Dark Mode- Primary": {
+      Background: "#270202",
+      Hover: "#be1919",
+      Default: "#c24747",
+      Pressed: "#dc8989",
+    },
+    "Dark Mode- Success": {
+      Background: "#0a2922",
+      "02": "#36ceab",
+      "03": "#57e5c4",
+      "04": "#64f7d5",
+    },
+    "Daek Mode- Waening": {
+      "01": "#352a03",
+      "02": "#c25a0a",
+      "03": "#f2700d",
+      "04": "#f18a3b",
+    },
+    "Dark Mode- Text+icon": {
+      "01": "#d0d1e1",
+      "02": "#b7b9d2",
+      "03": "#8f90a3",
+      "04": "#666775",
+      "05": "#40414a",
+      "06": "#0e0e10",
+    },
+    "Dark Mode- Neutral": {
+      "01": "#05051e",
+      "02": "#010304",
+      "03": "#030407",
+      "04": "#07080e",
+      "05": "#b4b8c0",
+      "06": "#d1d4dc",
+      "07": "#d9dce3",
+      "08": "#ebeef4",
+    },
+  },
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    base: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.75rem",
+    "4xl": "2rem",
+    "5xl": "2.25rem",
+    "6xl": "2.8125rem",
+    "7xl": "3.5625rem",
+  },
+  fontFamily: { iranyekanxfanum: "IRANYekanXFaNum" },
+  boxShadow: {
+    "Elevation-Dark/01": "0px 1px 2px 0px rgba(0,0,0,0.01)",
+    "Elevation-Dark/02":
+      "0px 1px 3px 0px rgba(10,13,20,0.01), 0px 1px 2px -1px rgba(0,0,0,0.02)",
+    "Elevation-Dark/03":
+      "0px 3px 5px 0px rgba(10,13,20,0.04), 0px 2px 4px -2px rgba(0,0,0,0.04)",
+    "Elevation-Dark/04":
+      "0px 12px 16px -4px rgba(0,0,0,0.06), 0px 4px 6px -2px rgba(0,0,0,0.06), 0px 2px 2px -1px rgba(0,0,0,0.06)",
+    "Elevation-Dark/05":
+      "0px 20px 24px -4px rgba(10,13,20,0.07), 0px 8px 8px -4px rgba(0,0,0,0.07), 0px 3px 3px -1.5px rgba(0,0,0,0.07)",
+    "Elevation-Dark/06":
+      "0px 24px 48px -12px rgba(0,0,0,0.14), 0px 4px 4px -2px rgba(0,0,0,0.1)",
+    "Elevation-Dark/07":
+      "0px 32px 64px -12px rgba(0,0,0,0.18), 0px 5px 5px -2.5px rgba(0,0,0,0.1)",
+    "Elevation-Primary/01": "0px 1px 2px 0px rgba(19,99,223,0.01)",
+    "Elevation-Primary/02":
+      "0px 1px 3px 0px rgba(190,55,55,0.08), 0px 1px 4px -1px rgba(190,55,55,0.2)",
+    "Elevation-Primary/03":
+      "0px 3px 5px 0px rgba(190,55,55,0.04), 0px 2px 4px -2px rgba(190,55,55,0.04)",
+    "Elevation-Primary/04":
+      "0px 12px 16px -4px rgba(239,57,57,0.06), 0px 4px 6px -2px rgba(239,57,57,0.06), 0px 2px 2px -1px rgba(239,57,57,0.06)",
+    "Elevation-Primary/05":
+      "0px 20px 24px -4px rgba(190,55,55,0.07), 0px 8px 8px -4px rgba(190,55,55,0.07), 0px 3px 3px -1.5px rgba(190,55,55,0.07)",
+    "Elevation-Primary/06":
+      "0px 24px 48px -12px rgba(190,55,55,0.14), 0px 4px 4px -2px rgba(190,55,55,0.1)",
+    "Elevation-Primary/07":
+      "0px 32px 64px -12px rgba(239,57,57,0.18), 0px 5px 5px -2.5px rgba(239,57,57,0.1)",
+  },
+  borderRadius: {
+    "rounded-0": "NaNrem",
+    "rounded-1": "NaNrem",
+    "rounded-2": "NaNrem",
+    "rounded-3": "NaNrem",
+    "rounded-4": "NaNrem",
+    "rounded-5": "NaNrem",
+    "rounded-6": "NaNrem",
+    "rounded-7": "NaNrem",
+    "rounded-8": "NaNrem",
+    "rounded-9": "NaNrem",
+    "rounded-10": "NaNrem",
+    "rounded-11": "NaNrem",
+    "rounded-12": "NaNrem",
+    "rounded-13": "NaNrem",
+    "rounded-14": "NaNrem",
+    "rounded-15": "NaNrem",
+    "rounded-16": "NaNrem",
+    "rounded-17": "NaNrem",
+    "rounded-18": "NaNrem",
+    "rounded-19": "NaNrem",
+    "rounded-20": "NaNrem",
+    "rounded-21": "NaNrem",
+    "rounded-22": "NaNrem",
+    "rounded-23": "NaNrem",
+    "rounded-24": "NaNrem",
+    "rounded-25": "NaNrem",
+    "rounded-26": "NaNrem",
+  },
+};
+export default theme;

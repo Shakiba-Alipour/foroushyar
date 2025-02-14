@@ -1,8 +1,14 @@
+// custom theme exported from
+import customTheme from "./theme.js";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: customTheme.colors, // Use colors from theme.js
+      fontFamily: customTheme.fonts, // Use fonts from theme.js
+    },
   },
   plugins: [],
 };
