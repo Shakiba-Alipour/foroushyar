@@ -9,7 +9,7 @@ module.exports = {
       colors: customTheme.colors, // Use colors from theme.js
       fontFamily: {
         iranYekan: ["IRANYekan", "sans-serif"],
-      }, // Use fonts from theme.js
+      }, // Use font sizes from theme.js
       fontSize: customTheme.fontSize,
     },
   },
