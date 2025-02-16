@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       // Use data from theme.js
       colors: customTheme.colors,
-      fontFamily: customTheme.fontFamily.iranyekanxfanum,
+      fontFamily: customTheme.fontFamily,
       fontSize: customTheme.fontSize,
       borderRadius: customTheme.borderRadius,
       boxShadow: customTheme.boxShadow,

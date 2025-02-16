@@ -11,7 +11,7 @@ const Header = () => {
       </Link>
       <div className="flex flex-row w-1/4 justify-around sm:flex-col">
         <div className="flex flex-row">
-          <p className="font-iranYekan">2400</p>
+          <p>2400</p>
           <WalletIcon />
         </div>
         <Profile_Icon />
