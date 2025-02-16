@@ -1,16 +1,27 @@
 import { List } from "antd";
 import Edit_Icon from "../../assets/Edit_Icon";
+import NewQuestion from "./components/NewQuestion";
 
 const FaqPage = () => {
+  // when the user clicks on the new question button
+  const handleNewQuestionClick = () => {
+    return <NewQuestion />;
+  };
+
   return (
     // flex-grow pushes the menu to the bottom if there's not enough content
     <div className="flex-col flex-grow">
-      <p className="font-iranYekan font-bold m-4">سوالات متداول</p>
+      <p className="font-Text+Icon-01 font-bold m-4 text-Text+Icon-01">
+        سوالات متداول
+      </p>
 
       <DisplayLoadedQuestions loadedQuestions={[]} />
 
       {/* to add a new question */}
-      <button className="font-iranYekan relative top-64 w-11/12 h-10 flex items-center justify-center justify-self-center bg-red-800 text-white rounded-lg hover:bg-red-700">
+      <button
+        onClick={handleNewQuestionClick}
+        className="relative top-64 w-11/12 h-10 flex items-center justify-center justify-self-center bg-Primary-Default text-Neutral-White rounded-rounded-6 hover:bg-Primary-Hover"
+      >
         افزودن ＋
       </button>
     </div>
@@ -27,7 +38,7 @@ const DisplayLoadedQuestions: React.FC<{
   // if no questions had been entered before
   if (!Array.isArray(loadedQuestions) || loadedQuestions.length === 0) {
     return (
-      <p className="text-gray-500 font-iranYekan flex justify-center m-4">
+      <p className="text-gray-500 font-iranYekan flex justify-center m-4 align-middle">
         هیچ سوالی وجود ندارد
       </p>
     );
