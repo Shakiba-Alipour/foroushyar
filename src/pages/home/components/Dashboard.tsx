@@ -16,7 +16,7 @@ const Data: React.FC<{
   // }
 
   return (
-    <div className="bg-NeutralPrimaryBackground border-NeutralSecondaryBackgroundDark border-r-4">
+    <div className="bg-Neutral-PrimaryBackground border-Neutral-SecondaryBackground border-r-4">
       <p>{title}</p>
       {/* to display the number of chats and active addons*/}
       {type === "number" && typeof data === "object" && "current" in data && (

@@ -20,14 +20,14 @@ const Menu = () => {
 
   return (
     // display menu
-    <div className="w-full h-14 bottom-0">
-      <div className="flex justify-around items-center w-11/12 place-self-center h-12 bg-NeutralPrimaryBackground border-NeutralSecondaryBackgroundDark">
+    <div className="w-full h-14 bottom-0 bg-Neutral-PrimaryBackground">
+      <div className="flex justify-around items-center w-11/12 place-self-center h-12 bg-Neutral-SecondaryBackground rounded-rounded-8">
         {items.map(({ path, key, icon }) => (
           <div key={key} className="flex flex-col relative items-center">
             <NavLink
               to={path}
               className={({ isActive }) =>
-                isActive ? "text-PrimaryDefault" : ""
+                isActive ? "stroke-Primary-Hover" : ""
               }
               end
             >
@@ -35,7 +35,7 @@ const Menu = () => {
             </NavLink>
             {/* the red dot is only appeared when the page is active */}
             {location.pathname === path && (
-              <span className="absolute bg-red-800 w-1 h-1 rounded-full bottom-[-10px]"></span>
+              <span className="absolute bg-Primary-Hover w-1 h-1 rounded-full bottom-[-10px]"></span>
             )}
           </div>
         ))}
