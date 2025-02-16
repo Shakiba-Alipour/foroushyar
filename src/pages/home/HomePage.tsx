@@ -1,4 +1,4 @@
-import { Select, Space } from "antd";
+import { Select } from "antd";
 
 const HomePage = () => {
   const handleSelectChange = () => {};
