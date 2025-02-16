@@ -7,7 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: customTheme.colors, // Use colors from theme.js
-      fontFamily: customTheme.fonts, // Use fonts from theme.js
+      fontFamily: {
+        iranYekan: ["IRANYekan", "sans-serif"],
+      }, // Use fonts from theme.js
+      fontSize: customTheme.fontSize,
     },
   },
   plugins: [],

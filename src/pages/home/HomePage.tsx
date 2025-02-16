@@ -4,17 +4,19 @@ const HomePage = () => {
   const handleSelectChange = () => {};
   return (
     <div className="flex flex-col">
-      <h2 className="text-base font-bold w-fit">خانه</h2>
+      <h2 className="text-base font-iranYekan font-bold w-fit">خانه</h2>
 
       <div>
         <Space wrap className="w-fit flex flex-row justify-self-center">
           <Select
             defaultValue="همه آگهی‌ها"
+            className="font-iranYekan"
             onChange={handleSelectChange}
             // options={products}
           />
           <Select
-            defaultValue="30 روز گذشته"
+            defaultValue="روز گذشته 30"
+            className="font-iranYekan text-right"
             onChange={handleSelectChange}
             // options={products}
           />
