@@ -6,16 +6,16 @@ import Profile_Icon from "../assets/Profille_Icon";
 const Header = () => {
   return (
     <header className="flex justify-between h-14 w-full p-4">
-      <div className="flex flex-row w-1/4 justify-around sm:flex-col">
-        <Profile_Icon />
-        <div className="flex flex-row">
-          <WalletIcon />
-          <p className="font-iranYekan">2400</p>
-        </div>
-      </div>
       <Link to="/">
         <Logo />
       </Link>
+      <div className="flex flex-row w-1/4 justify-around sm:flex-col">
+        <div className="flex flex-row">
+          <p className="font-iranYekan">2400</p>
+          <WalletIcon />
+        </div>
+        <Profile_Icon />
+      </div>
     </header>
   );
 };

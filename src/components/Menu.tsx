@@ -8,11 +8,11 @@ import MessagingIcon from "../assets/Messaging_Icon";
 const Menu = () => {
   //   menu items
   const items = [
-    { path: "/faq", key: "faq", icon: <FaqIcon /> },
-    { path: "/bulk-messaging", key: "messaging", icon: <MessagingIcon /> },
-    { path: "/", key: "home", icon: <HomeIcon /> },
-    { path: "/product", key: "product", icon: <ProductsIcon /> },
     { path: "/", key: "", icon: <AI /> },
+    { path: "/product", key: "product", icon: <ProductsIcon /> },
+    { path: "/", key: "home", icon: <HomeIcon /> },
+    { path: "/bulk-messaging", key: "messaging", icon: <MessagingIcon /> },
+    { path: "/faq", key: "faq", icon: <FaqIcon /> },
   ];
 
   // current path
