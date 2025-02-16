@@ -6,11 +6,12 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: customTheme.colors, // Use colors from theme.js
-      fontFamily: {
-        iranYekan: ["IRANYekan", "sans-serif"],
-      }, // Use font sizes from theme.js
+      // Use data from theme.js
+      colors: customTheme.colors,
+      fontFamily: customTheme.fontFamily.iranyekanxfanum,
       fontSize: customTheme.fontSize,
+      borderRadius: customTheme.borderRadius,
+      boxShadow: customTheme.boxShadow,
     },
   },
   plugins: [],
