@@ -23,8 +23,13 @@ const ProductsPage = () => {
         onSearch={handleSearchClick}
         className="p-4"
       />
+
       <DisplayProducts />
-      <GlobalButtons />
+
+      <GlobalButtons
+        addonTitle="محصولات مرتبط همه"
+        chatbotTitle="چت هوشمند همه"
+      />
     </div>
   );
 };
