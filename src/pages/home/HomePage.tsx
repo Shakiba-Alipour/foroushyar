@@ -11,11 +11,13 @@ const HomePage = () => {
         <Select
           defaultValue="30 روز گذشته"
           className=" text-right"
+          size="large"
           onChange={handleSelectChange}
           // options={products}
         />
         <Select
           defaultValue="همه آگهی‌ها"
+          size="large"
           onChange={handleSelectChange}
           // options={products}
         />
