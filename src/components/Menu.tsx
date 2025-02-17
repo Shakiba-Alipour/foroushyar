@@ -9,10 +9,10 @@ const Menu = () => {
   //   menu items
   const items = [
     { path: "/", key: "", icon: <AI /> },
-    { path: "/product", key: "product", icon: <ProductsIcon /> },
+    { path: "products", key: "product", icon: <ProductsIcon /> },
     { path: "/", key: "home", icon: <HomeIcon /> },
-    { path: "/bulk-messaging", key: "messaging", icon: <MessagingIcon /> },
-    { path: "/faq", key: "faq", icon: <FaqIcon /> },
+    { path: "bulk-messaging", key: "messaging", icon: <MessagingIcon /> },
+    { path: "faq", key: "faq", icon: <FaqIcon /> },
   ];
 
   // current path
@@ -34,7 +34,7 @@ const Menu = () => {
               {icon}
             </NavLink>
             {/* the red dot is only appeared when the page is active */}
-            {location.pathname === path && (
+            {location.pathname.endsWith(path) && (
               <span className="absolute bg-Primary-Hover w-1 h-1 rounded-full bottom-[-10px]"></span>
             )}
           </div>
