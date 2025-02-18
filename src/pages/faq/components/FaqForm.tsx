@@ -33,35 +33,37 @@ const FaqForm = ({
       </Button>
 
       {/* drawer content */}
-      {/* the title */}
-      <h2 className="text-lg font-bold text-Text+Icon-01">
-        ویرایش سوال متداول
-      </h2>
+      <div className="flex flex-col h-full">
+        {/* the title */}
+        <p className="text-xl font-bold text-Text+Icon-01">
+          ویرایش سوال متداول
+        </p>
 
-      {/* the form */}
-      <Form method="POST" className="mt-4">
-        <Input
-          placeholder="سوال"
-          name="question"
-          required
-          className="w-full mt-2 mb-2 border-Text+Icon-04 font-bold"
-        />
-        <TextArea
-          placeholder="پاسخ"
-          rows={8}
-          name="answer"
-          required
-          className="w-full mt-2 mb-2 border-Text+Icon-04 font-bold"
-        />
-      </Form>
-      {/* save and cancel buttons */}
-      <div className="w-full justify-between">
-        <Button className="ml-2 font-bold bg-Neutral-White border-Danger-Background text-Danger-Default hover:text-Danger-Hover hover:border-Danger-Hover">
-          لغو
-        </Button>
-        <Button className="mr-2 font-bold text-Neutral-White bg-Primary-Default hover:bg-Primary-Hover">
-          ذخیره
-        </Button>
+        {/* the form */}
+        <Form method="POST" className="mt-4 flex-grow">
+          <Input
+            placeholder="سوال"
+            name="question"
+            required
+            className="w-full mt-2 mb-2 border-Text+Icon-04 font-bold"
+          />
+          <TextArea
+            placeholder="پاسخ"
+            rows={8}
+            name="answer"
+            required
+            className="w-full mt-2 mb-2 border-Text+Icon-04 font-bold"
+          />
+        </Form>
+        {/* save and cancel buttons */}
+        <div className="w-full flex justify-between">
+          <Button className="w-1/2 ml-2 font-bold bg-Neutral-White border-Danger-Background text-Danger-Default hover:text-Danger-Hover hover:border-Danger-Hover cursor-pointer">
+            لغو
+          </Button>
+          <Button className="w-1/2 mr-2 font-bold text-Neutral-White bg-Primary-Default hover:bg-Primary-Hover cursor-pointer">
+            ذخیره
+          </Button>
+        </div>
       </div>
     </Drawer>
   );
