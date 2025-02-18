@@ -1,12 +1,11 @@
 import { List } from "antd";
 import Edit_Icon from "../../assets/Edit_Icon";
 import NewQuestion from "./components/NewQuestion";
+import { useState } from "react";
 
 const FaqPage = () => {
-  // when the user clicks on the new question button
-  const handleNewQuestionClick = () => {
-    return <NewQuestion />;
-  };
+  // this state checks if the modal (FaqForm to enter a new question) is open or not
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     // flex-grow pushes the menu to the bottom if there's not enough content
@@ -19,11 +18,17 @@ const FaqPage = () => {
 
       {/* to add a new question */}
       <button
-        onClick={handleNewQuestionClick}
+        onClick={() => setIsModalOpen(true)}
         className="relative top-64 w-11/12 h-10 flex items-center justify-center justify-self-center bg-Primary-Default text-Neutral-White rounded-rounded-6 hover:bg-Primary-Hover"
       >
         افزودن ＋
       </button>
+      {isModalOpen && (
+        <NewQuestion
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };
@@ -31,7 +36,7 @@ const FaqPage = () => {
 // to load questions
 export async function loader() {}
 
-// to display the faq
+// to display the loaded faq
 const DisplayLoadedQuestions: React.FC<{
   loadedQuestions: { question: string; answer: string }[];
 }> = ({ loadedQuestions }) => {

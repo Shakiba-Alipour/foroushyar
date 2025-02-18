@@ -1,7 +1,13 @@
 import FaqForm from "./FaqForm";
 
-const NewQuestion = () => {
-  return <FaqForm />;
+const NewQuestion = ({
+  isModalOpen,
+  setIsModalOpen,
+}: {
+  isModalOpen: boolean;
+  setIsModalOpen: (isModalOpen: boolean) => void;
+}) => {
+  return <FaqForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
 };
 
 // send new entered data to the backend
