@@ -4,7 +4,7 @@ import NewQuestion from "./components/NewQuestion";
 import { useState } from "react";
 
 const FaqPage = () => {
-  // this state checks if the modal (FaqForm to enter a new question) is open or not
+  // this state checks if the drawer (FaqForm to enter a new question) is open or not
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -43,7 +43,7 @@ const DisplayLoadedQuestions: React.FC<{
   // if no questions had been entered before
   if (!Array.isArray(loadedQuestions) || loadedQuestions.length === 0) {
     return (
-      <p className="text-gray-500 font-iranYekan flex justify-center m-4 align-middle">
+      <p className="text-Neutral-LineDark flex justify-center m-4 align-middle">
         هیچ سوالی وجود ندارد
       </p>
     );
