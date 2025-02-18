@@ -1,13 +1,15 @@
 import FaqForm from "./FaqForm";
 
 const NewQuestion = ({
-  isModalOpen,
-  setIsModalOpen,
+  isDrawerOpen,
+  setIsDrawerOpen,
 }: {
-  isModalOpen: boolean;
-  setIsModalOpen: (isModalOpen: boolean) => void;
+  isDrawerOpen: boolean;
+  setIsDrawerOpen: (isDrawerOpen: boolean) => void;
 }) => {
-  return <FaqForm isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+  return (
+    <FaqForm isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
+  );
 };
 
 // send new entered data to the backend

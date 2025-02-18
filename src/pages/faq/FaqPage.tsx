@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const FaqPage = () => {
   // this state checks if the modal (FaqForm to enter a new question) is open or not
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
     // flex-grow pushes the menu to the bottom if there's not enough content
@@ -18,15 +18,15 @@ const FaqPage = () => {
 
       {/* to add a new question */}
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => setIsDrawerOpen(true)}
         className="relative top-64 w-11/12 h-10 flex items-center justify-center justify-self-center bg-Primary-Default text-Neutral-White rounded-rounded-6 hover:bg-Primary-Hover"
       >
         افزودن ＋
       </button>
-      {isModalOpen && (
+      {isDrawerOpen && (
         <NewQuestion
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
+          isDrawerOpen={isDrawerOpen}
+          setIsDrawerOpen={setIsDrawerOpen}
         />
       )}
     </div>
