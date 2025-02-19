@@ -10,7 +10,7 @@ const HomePage = () => {
       <div className="flex flex-row justify-items-center justify-around w-full mt-2 mb-2">
         <Select
           defaultValue="30 روز گذشته"
-          className=" text-right"
+          className="text-right"
           size="large"
           onChange={handleSelectChange}
           // options={products}

@@ -60,7 +60,7 @@ const FaqForm = ({
             name="question"
             required
             ref={question}
-            className="w-full mt-2 mb-2 p-3 border-Text+Icon-02 font-bold h-8 rounded-rounded-6"
+            className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold h-8 rounded-rounded-6"
           />
           <textarea
             placeholder="پاسخ"
@@ -68,7 +68,7 @@ const FaqForm = ({
             name="answer"
             required
             ref={answer}
-            className="w-full mt-2 mb-2 p-3 border-Text+Icon-04 font-bold rounded-rounded-6"
+            className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold rounded-rounded-6"
           />
         </Form>
         {/* save and cancel buttons */}
