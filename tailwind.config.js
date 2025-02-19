@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       // Use data from theme.js
       colors: customTheme.colors,
-      fontFamily: customTheme.fontFamily,
+      fontFamily: {
+        sans: ["IranYekanXFaNum", "sans-serif"],
+      },
       fontSize: customTheme.fontSize,
       borderRadius: customTheme.borderRadius,
       boxShadow: customTheme.boxShadow,
