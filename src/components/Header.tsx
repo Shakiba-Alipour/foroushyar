@@ -5,7 +5,7 @@ import Profile_Icon from "../assets/Profille_Icon";
 
 const Header = () => {
   return (
-    <header className="flex justify-between h-14 w-full p-4 sticky top-0 bg-Neutral-PrimaryBackground border border-b-Text+Icon-05">
+    <header className="flex justify-between h-14 w-full p-4 sticky top-0 z-30 bg-Neutral-PrimaryBackground border border-b-Text+Icon-05">
       <Link to="/">
         <Logo />
       </Link>
