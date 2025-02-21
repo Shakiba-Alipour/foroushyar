@@ -13,9 +13,9 @@ const GlobalButtons: React.FC<GlobalButtonsProps> = ({
   chatbotTitle,
 }) => {
   return (
-    <div className="flex flex-row m-0 gap-2 justify-center w-full z-50">
+    <div className="flex flex-row m-0 absolute bottom-16 right-0 left-0 justify-around w-full z-50">
       <Button
-        className="w-max px-4 py-2 font-semibold text-Primary-Default border-Primary-Background"
+        className="w-5/12 px-4 py-2 font-semibold text-Primary-Default border-Primary-Background"
         onClick={handleAddonSubmit}
       >
         {addonTitle}
@@ -23,7 +23,7 @@ const GlobalButtons: React.FC<GlobalButtonsProps> = ({
       <Button
         icon={<AI_Icon />}
         iconPosition="end"
-        className="w-max px-4 py-2 font-semibold bg-Success-Default text-Neutral-White stroke-Neutral-White "
+        className="w-5/12 px-4 py-2 font-semibold bg-Success-Default text-Neutral-White stroke-Neutral-White "
         onClick={handleChatbotSubmit}
       >
         {chatbotTitle}
