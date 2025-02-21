@@ -20,7 +20,7 @@ const Menu = () => {
 
   return (
     // display menu
-    <div className="w-full h-14 bottom-0 bg-Neutral-PrimaryBackground">
+    <div className="w-full h-14 sticky bottom-0 bg-Neutral-PrimaryBackground">
       <div className="flex justify-around items-center w-11/12 place-self-center h-12 bg-Neutral-SecondaryBackground rounded-rounded-8">
         {items.map(({ path, key, icon }) => (
           <div key={key} className="flex flex-col relative items-center">
