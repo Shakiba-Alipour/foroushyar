@@ -1,32 +1,35 @@
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { useState } from "react";
-import { redBg, whiteBg } from "./FaqForm";
+import CancelSaveButton from "../../../components/CancelSaveButton";
 
 // to handle click on close or cancel buttons
-const HandleCancelClick: React.FC = () => {
-  // this state checks if the drawer (FaqForm to enter a new question) is open or not
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const HandleCancelClick = ({
+  isVisible,
+  onClose,
+}: {
+  isVisible: boolean;
+  onClose: () => void;
+}) => {
+  function setIsModalVisible(arg0: boolean): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <Modal
       title="آیا از حذف مطمئن هستید؟"
       closable={false} // to remove default close button
       footer={false} // to remove default footer buttons
-      open={isModalOpen}
+      open={isVisible}
       className="bg-Neutral-White"
     >
       <div className="flex flex-row justify-between w-full z-40 rounded-rounded-4 border-t-Neutral-Line bg-Neutral-BaseBackground">
-        <Button className={whiteBg} onClick={() => setIsModalOpen(false)}>
-          انصراف
-        </Button>
-        <Button
-          className={redBg}
-          onClick={() => {
-            setIsModalOpen(false);
-          }}
-        >
-          حذف
-        </Button>
+        {/* props of CancelSaveButton are not correct */}
+        <CancelSaveButton
+          whiteButtonLabel="لغو"
+          redButtonLabel="ذخیره"
+          onCancel={() => setIsModalVisible(true)}
+          onSave={() => setIsModalVisible(true)}
+        />
       </div>
     </Modal>
   );

@@ -1,14 +1,10 @@
 import { Button, Drawer } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import { Form } from "react-router-dom";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import HandleCancelClick from "./HandleCancelClick";
-
-// buttons
-export const whiteBg =
-  "w-1/2 ml-2 font-bold bg-Neutral-White border-Danger-Background text-Danger-Default hover:text-Danger-Hover hover:border-Danger-Hover cursor-pointer";
-export const redBg =
-  "w-1/2 mr-2 font-bold text-Neutral-White bg-Primary-Default hover:bg-Primary-Hover cursor-pointer";
+import useModal from "../hooks/useConfirmationModal";
+import CancelSaveButton from "../../../components/CancelSaveButton";
 
 const FaqForm = ({
   isDrawerOpen,
@@ -20,6 +16,20 @@ const FaqForm = ({
   // reference to user inputs
   const question = useRef<HTMLInputElement>(null);
   const answer = useRef<HTMLTextAreaElement>(null);
+  // modal state
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  // useEffect to show modal when state updates
+  useEffect(() => {
+    if (isModalVisible) {
+      console.log("Modal is now visible");
+      (question.current?.value !== "" || answer.current?.value !== "") && (
+        <HandleCancelClick
+          isVisible={isModalVisible}
+          onClose={() => setIsModalVisible(false)}
+        />
+      );
+    }
+  }, [isModalVisible]);
 
   return (
     <Drawer
@@ -37,9 +47,7 @@ const FaqForm = ({
         className="absolute -top-12  right-4 z-20 bg-Neutral-PrimaryBackground rounded-rounded-6 font-bold cursor-pointer"
         onClick={() => {
           // if the user has inserted input, a confirmation modal will appear
-          if (question.current?.value.trim() || answer.current?.value.trim()) {
-            <HandleCancelClick />;
-          }
+          setIsModalVisible(true);
           setIsDrawerOpen(false);
         }}
       >
@@ -52,7 +60,6 @@ const FaqForm = ({
         <p className="text-xl font-bold text-Text+Icon-01">
           ویرایش سوال متداول
         </p>
-
         {/* the form */}
         <Form method="POST" className="mt-4 flex-grow">
           <input
@@ -72,24 +79,14 @@ const FaqForm = ({
           />
         </Form>
         {/* save and cancel buttons */}
-        <div className="w-full flex justify-between">
-          <Button
-            className={whiteBg}
-            onClick={() => {
-              // if the user has inserted input, a confirmation modal will appear
-              if (
-                question.current?.value !== "" ||
-                answer.current?.value !== ""
-              ) {
-                <HandleCancelClick />;
-              }
-              setIsDrawerOpen(false);
-            }}
-          >
-            لغو
-          </Button>
-          <Button className={redBg}>ذخیره</Button>
-        </div>
+        {/* if the user has inserted input, a confirmation modal will appear */}
+        {/* props of CancelSaveButton are not correct */}
+        <CancelSaveButton
+          whiteButtonLabel="لغو"
+          redButtonLabel="ذخیره"
+          onCancel={() => setIsModalVisible(true)}
+          onSave={() => setIsModalVisible(true)}
+        />
       </div>
     </Drawer>
   );
