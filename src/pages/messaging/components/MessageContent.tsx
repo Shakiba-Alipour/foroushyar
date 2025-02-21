@@ -7,7 +7,7 @@ const MessageContent = () => {
 
   return (
     <div>
-      <h1 className="text-Text+Icon-01 text-lg">محتوای ارسالی</h1>
+      <h1 className="text-Text+Icon-01 text-lg mt-4">محتوای ارسالی</h1>
       <p className="text-Text+Icon-02">
         متنی که می‌خواهید ارسال شود را بنویسید.
       </p>

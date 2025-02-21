@@ -34,7 +34,7 @@ const MessageContent = () => {
 
   return (
     <div>
-      <h1 className="text-Text+Icon-01 text-lg">انتخاب آگهی</h1>
+      <h1 className="text-Text+Icon-01 text-lg mt-4">انتخاب آگهی</h1>
       <p className="text-Text+Icon-02">
         محصولاتی که می‌خواهید پیام در چت‌های قبلی آن‌ها ارسال شود را انتخاب
         کنید.
