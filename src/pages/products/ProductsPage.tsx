@@ -13,7 +13,7 @@ const ProductsPage = () => {
     console.log(info?.source, value);
 
   return (
-    <div className="flex-col m-4">
+    <div className="flex-grow flex-col m-4">
       <h1 className="text-Text+Icon-01 font-bold">آگهی‌ها</h1>
       <Search
         placeholder="جستجوی آگهی"

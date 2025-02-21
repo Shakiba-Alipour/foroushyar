@@ -9,7 +9,7 @@ const FaqPage = () => {
 
   return (
     // flex-grow pushes the menu to the bottom if there's not enough content
-    <div className="flex-co;">
+    <div className="flex-grow flex-col">
       <h1 className="font-Text+Icon-01 font-bold m-4 text-Text+Icon-01">
         سوالات متداول
       </h1>
