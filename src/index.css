@@ -80,16 +80,16 @@
 
 body {
   margin: 0;
+}
+
+* {
+  font-variant-numeric: lining-nums;
   font-family: IRANYekanXFaNum !important;
   direction: rtl;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "pnum" on, "lnum" off;
   unicode-bidi: plaintext;
-}
-
-* {
-  font-variant-numeric: lining-nums;
 }
 
 code {
