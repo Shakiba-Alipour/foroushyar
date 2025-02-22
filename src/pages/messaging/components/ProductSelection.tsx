@@ -49,8 +49,13 @@ const MessageContent = () => {
         columns={columns}
         scroll={{ y: 5 * 30 }}
         bordered
-        //   rowSelection={{ ...rowSelection, checkStrictly }}
-      ></Table>
+        rowSelection={{
+          type: "checkbox",
+          onChange: (selectedRowKeys, selectedRows) => {
+            console.log("Selected rows:", selectedRows);
+          },
+        }}
+      />
       {/* <Space align="center" style={{ marginBottom: 16 }}>
           CheckStrictly:{" "}
           <Switch checked={checkStrictly} onChange={setCheckStrictly} />
