@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React from "react";
 
-// cancel and save buttons are one of the most-frequently used components of the website
+// cancel and save (previous and next) buttons are one of the most-frequently used components of the website
 // they are implemented in this folder to be availabl globally
 
 // defining the component props with function types
