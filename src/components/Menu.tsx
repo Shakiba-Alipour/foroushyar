@@ -8,7 +8,7 @@ import MessagingIcon from "../assets/Messaging_Icon";
 const Menu = () => {
   //   menu items
   const items = [
-    { path: "/", key: "", icon: <AI /> },
+    // { path: "/", key: "", icon: <AI /> },
     { path: "products", key: "product", icon: <ProductsIcon /> },
     { path: "/", key: "home", icon: <HomeIcon /> },
     { path: "bulk-messaging", key: "messaging", icon: <MessagingIcon /> },
