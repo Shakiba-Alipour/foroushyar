@@ -5,7 +5,7 @@ import SearchArea from "../../components/SearchArea";
 const ProductsPage = () => {
   return (
     <div className="flex-grow flex-col m-4">
-      <h1 className="text-Text+Icon-01 font-bold">آگهی‌ها</h1>
+      <h1 className="text-lg text-Text+Icon-01 font-bold">آگهی‌ها</h1>
       <SearchArea />
 
       <AllProducts />
