@@ -27,8 +27,8 @@ const HandleCancelClick = ({
         <CancelSaveButton
           whiteButtonLabel="لغو"
           redButtonLabel="ذخیره"
-          onCancel={() => setIsModalVisible(true)}
-          onSave={() => setIsModalVisible(true)}
+          onWhiteClick={() => setIsModalVisible(true)}
+          onRedClick={() => setIsModalVisible(true)}
         />
       </div>
     </Modal>

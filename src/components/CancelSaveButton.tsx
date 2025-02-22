@@ -8,15 +8,15 @@ import React from "react";
 interface Props {
   whiteButtonLabel: string;
   redButtonLabel: string;
-  onCancel: () => void;
-  onSave: () => void;
+  onWhiteClick: () => void;
+  onRedClick: () => void;
 }
 
 const CancelSaveButton: React.FC<Props> = ({
   whiteButtonLabel,
   redButtonLabel,
-  onCancel,
-  onSave,
+  onWhiteClick,
+  onRedClick,
 }) => {
   const whiteBg =
     "w-1/2 ml-2 font-bold bg-Neutral-White border-Danger-Background text-Danger-Default hover:text-Danger-Hover hover:border-Danger-Hover cursor-pointer";
@@ -25,10 +25,10 @@ const CancelSaveButton: React.FC<Props> = ({
 
   return (
     <div className="w-full flex justify-between">
-      <Button className={whiteBg} onClick={onCancel}>
+      <Button className={whiteBg} onClick={onWhiteClick}>
         {whiteButtonLabel}
       </Button>
-      <Button className={redBg} onClick={onSave}>
+      <Button className={redBg} onClick={onRedClick}>
         {redButtonLabel}
       </Button>
     </div>

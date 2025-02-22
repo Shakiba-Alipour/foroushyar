@@ -84,8 +84,8 @@ const FaqForm = ({
         <CancelSaveButton
           whiteButtonLabel="لغو"
           redButtonLabel="ذخیره"
-          onCancel={() => setIsModalVisible(true)}
-          onSave={() => setIsModalVisible(true)}
+          onWhiteClick={() => {}}
+          onRedClick={() => {}}
         />
       </div>
     </Drawer>
