@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Summary from "./Summary";
 
 // this function component displays each section's data
 // info is either an object containing current value and change (for displaying the number of chats and active addons),
@@ -15,27 +16,21 @@ const Data: React.FC<{
 
   // }
 
+  // To define classNames for the info container
+  const containerStyle =
+    "border-Neutral-PrimaryBackground bg-Neutral-SecondaryBackground w-2/5 flex flex-col p-3 rounded-rounded-6";
+
   return (
-    <div className="bg-Neutral-PrimaryBackground border-Neutral-SecondaryBackground border-r-4">
-      <p>{title}</p>
+    <div className={containerStyle}>
+      <p className="text-sm text-Text+Icon-00 font-semibold">{title}</p>
       {/* to display the number of chats and active addons*/}
       {type === "number" && typeof data === "object" && "current" in data && (
-        <>
-          {/* the current value */}
-          <p className="text-xl font-bold">{data.current}</p>
-          {/* the change */}
-          <p
-            className={`text-sm ${
-              data.change >= 0 ? "text-SuccessDefault" : "text-WarningDefault"
-            }`}
-          >
-            {data.change >= 0 ? "↑" : "↓"}
-            {Math.abs(data.change)}
-          </p>
-        </>
+        <Summary data={data} />
       )}
       {/* to display the line chart */}:
-      {type === "line" && Array.isArray(data) && <></>}
+      {type === "line" && Array.isArray(data) && (
+        <div className={containerStyle}></div>
+      )}
       {/* to display the pie chart */}:
       {type === "pie" && Array.isArray(data) && <></>}
     </div>
@@ -46,7 +41,20 @@ const Data: React.FC<{
 const Dashboard = () => {
   return (
     <div>
-      <div></div>
+      <div className="flex flex-row justify-items-center justify-around w-full mt-4 mb-4">
+        {/* the number of chats */}
+        <Data
+          title="تعداد چت‌ها"
+          data={{ current: 14, change: 15 }}
+          type="number"
+        />
+        {/* the number of active addon */}
+        <Data
+          title="محصول فعال"
+          data={{ current: 20, change: -5 }}
+          type="number"
+        />
+      </div>
     </div>
   );
 };
