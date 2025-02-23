@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/Logo";
 import WalletIcon from "../assets/Wallet_Icon";
 import Profile_Icon from "../assets/Profille_Icon";
+import { Avatar } from "antd";
 
 const Header = () => {
   return (
@@ -9,12 +10,12 @@ const Header = () => {
       <Link to="/">
         <Logo />
       </Link>
-      <div className="flex flex-row w-1/4 justify-around sm:flex-col">
+      <div className="flex flex-row w-1/4 justify-around">
         <div className="flex flex-row">
           <p>2400</p>
           <WalletIcon />
         </div>
-        <Profile_Icon />
+        <Avatar size="small" icon={<Profile_Icon />} />
       </div>
     </header>
   );
