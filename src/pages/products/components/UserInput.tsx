@@ -5,6 +5,7 @@ import Edit_Icon from "../../../assets/Edit_Icon";
 import DescriptionForm from "./DescriptionForm";
 import { useState } from "react";
 import AddonList from "./AddonList";
+import PriceForm from "./PriceForm";
 
 // the form that conrains product detail and is editable
 interface UserInputProps {
@@ -34,7 +35,12 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
   if (isEditDrawerOpen) {
     switch (type) {
       case "number":
-        break;
+        return (
+          <PriceForm
+            isDrawerOpen={isEditDrawerOpen}
+            setIsDrawerOpen={setIsEditDrawerOpen}
+          />
+        );
 
       case "textArea":
         return (
@@ -43,6 +49,7 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
             setIsDrawerOpen={setIsEditDrawerOpen}
           />
         );
+
       case "addon":
         return (
           <AddonList
