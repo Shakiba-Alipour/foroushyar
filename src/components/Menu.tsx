@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import AI from "../assets/AI_Icon";
+// import AI from "../assets/AI_Icon";
 import HomeIcon from "../assets/Home_Icon";
 import FaqIcon from "../assets/Faq_Icon";
 import ProductsIcon from "../assets/Products_Icon";
