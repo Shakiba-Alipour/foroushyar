@@ -2,6 +2,8 @@ import { Input } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { ProductProps } from "./Product";
 import Edit_Icon from "../../../assets/Edit_Icon";
+import DescriptionForm from "./DescriptionForm";
+import { useState } from "react";
 
 // the form that conrains product detail and is editable
 interface UserInputProps {
@@ -11,16 +13,42 @@ interface UserInputProps {
 }
 
 const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
+  // this state holds the status of the editing drawer (addon, price, and description drawers)
+  const [isEditDrawerOpen, setIsEditDrawerOpen] = useState(false);
+
   const element = (
     <div className="flex flex-row w-full justify-between mt-4">
       <h2 className="text-Text+Icon-00 font-semibold">{title}</h2>
-      <div className="flex flex-row w-fit">
+      <div
+        className="flex flex-row w-fit cursor-pointer"
+        onClick={() => setIsEditDrawerOpen(true)}
+      >
         <p className="text-Primary-Default">ویرایش</p>
         <Edit_Icon />
       </div>
     </div>
   );
 
+  // To handle clicking on edit buttons
+  if (isEditDrawerOpen) {
+    switch (type) {
+      case "number":
+        break;
+
+      case "textArea":
+        return (
+          <DescriptionForm
+            isDrawerOpen={isEditDrawerOpen}
+            setIsDrawerOpen={setIsEditDrawerOpen}
+          />
+        );
+        break;
+      case "addon":
+        break;
+    }
+  }
+
+  // To display product details
   let input;
   const className =
     "w-full mt-2 mb-4 text-Text+Icon-01 bg-Neutral-BaseBackground rounded-rounded-6 border-none justify-center";
