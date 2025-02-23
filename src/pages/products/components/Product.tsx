@@ -29,7 +29,7 @@ const Product: React.FC<ProductProps> = ({
       <div className="flex flex-col w-5/6 justify-self-center">
         <UserInput title="قیمت محصول" type="number" value={price} />
         <UserInput title="توضیحات محصول" type="textArea" value={description} />
-        <UserInput title="تتظیمات محصولات مرتبط" type="addon" value={addon} />
+        <UserInput title="تنظیمات محصولات مرتبط" type="addon" value={addon} />
         {/* <UserInput title="تاریخچه چت‌ها" type="textArea" value={} /> */}
       </div>
 

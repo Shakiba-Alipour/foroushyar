@@ -22,19 +22,21 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
   );
 
   let input;
-  const className = "w-full mt-2 mb-4";
+  const className =
+    "w-full mt-2 mb-4 text-Text+Icon-01 bg-Neutral-BaseBackground rounded-rounded-6 border-none justify-center";
 
   if (type === "number" && typeof value === "number") {
     input = <Input className={className} suffix="تومان" value={value} />;
   } else if (type === "textArea" && typeof value === "string") {
     input = <TextArea className={className} value={value} />;
   } else if (type === "addon" && Array.isArray(value)) {
-    const className = "text-Text+Icon-01 font-light text-sm";
+    const className =
+      "text-Text+Icon-01 font-light text-sm p-3 bg-Neutral-BaseBackground rounded-rounded-6  mt-2 mb-4";
     input =
       value.length > 0 ? (
-        <p className={className}>
+        <div className={className}>
           {value.map((addon) => addon.name).join("، ")}
-        </p>
+        </div>
       ) : (
         <p className={className}>محصول مرتبطی وجود نداره!</p>
       );
