@@ -1,9 +1,7 @@
 import { Button, Drawer } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import { Form } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import HandleCancelClick from "./HandleCancelClick";
-import useModal from "../hooks/useConfirmationModal";
+import { useRef } from "react";
 import CancelSaveButton from "../../../components/CancelSaveButton";
 
 const FaqForm = ({
@@ -16,20 +14,6 @@ const FaqForm = ({
   // reference to user inputs
   const question = useRef<HTMLInputElement>(null);
   const answer = useRef<HTMLTextAreaElement>(null);
-  // modal state
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  // useEffect to show modal when state updates
-  useEffect(() => {
-    if (isModalVisible) {
-      console.log("Modal is now visible");
-      (question.current?.value !== "" || answer.current?.value !== "") && (
-        <HandleCancelClick
-          isVisible={isModalVisible}
-          onClose={() => setIsModalVisible(false)}
-        />
-      );
-    }
-  }, [isModalVisible]);
 
   return (
     <Drawer
@@ -45,11 +29,7 @@ const FaqForm = ({
         icon={<CloseCircleOutlined />}
         iconPosition="end"
         className="absolute -top-12  right-4 z-20 bg-Neutral-PrimaryBackground rounded-rounded-6 font-bold cursor-pointer"
-        onClick={() => {
-          // if the user has inserted input, a confirmation modal will appear
-          setIsModalVisible(true);
-          setIsDrawerOpen(false);
-        }}
+        onClick={() => setIsDrawerOpen(false)}
       >
         بستن
       </Button>
@@ -84,7 +64,7 @@ const FaqForm = ({
         <CancelSaveButton
           whiteButtonLabel="لغو"
           redButtonLabel="ذخیره"
-          onWhiteClick={() => {}}
+          onWhiteClick={() => setIsDrawerOpen(false)}
           onRedClick={() => {}}
         />
       </div>
