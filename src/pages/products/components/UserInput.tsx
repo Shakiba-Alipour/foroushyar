@@ -4,6 +4,7 @@ import { ProductProps } from "./Product";
 import Edit_Icon from "../../../assets/Edit_Icon";
 import DescriptionForm from "./DescriptionForm";
 import { useState } from "react";
+import AddonList from "./AddonList";
 
 // the form that conrains product detail and is editable
 interface UserInputProps {
@@ -42,9 +43,13 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
             setIsDrawerOpen={setIsEditDrawerOpen}
           />
         );
-        break;
       case "addon":
-        break;
+        return (
+          <AddonList
+            isDrawerOpen={isEditDrawerOpen}
+            setIsDrawerOpen={setIsEditDrawerOpen}
+          />
+        );
     }
   }
 
