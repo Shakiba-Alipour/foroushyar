@@ -41,7 +41,7 @@ const DescriptionForm = ({
         <Form method="POST" className="mt-4 flex-grow">
           <textarea
             rows={8}
-            name="answer"
+            name="description"
             required
             ref={description}
             className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold rounded-rounded-6"
