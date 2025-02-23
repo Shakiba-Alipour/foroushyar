@@ -53,7 +53,7 @@ const BulkMessagingPage = () => {
       {/* buttons */}
       <CancelSaveButton
         whiteButtonLabel="قبلی"
-        redButtonLabel="بعدی"
+        redButtonLabel={step === 75 ? "ارسال پیام گروهی" : "بعدی"}
         onWhiteClick={() => PrevClickHandler(step)}
         onRedClick={() => {
           NextClickHandler(step);
