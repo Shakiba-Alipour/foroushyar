@@ -1,6 +1,8 @@
 import { Button } from "antd";
 import AI_Icon from "../../../assets/AI_Icon";
 
+const iconStyle = {};
+
 const AllProducts = () => {
   // const products=useLoaderData()
   const products = [
@@ -13,6 +15,7 @@ const AllProducts = () => {
         <div
           className="mb-8 border border-Text+bg-Text+Icon-05 rounded-rounded-10 p-3 w-full"
           key={product.id}
+          onClick={() => {}}
         >
           <div className="flex flex-col">
             <p>{product.name}</p>
