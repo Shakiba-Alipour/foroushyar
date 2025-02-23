@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Summary from "./Summary";
+import LineChart from "./LineChart";
 
 // this function component displays each section's data
 // info is either an object containing current value and change (for displaying the number of chats and active addons),
@@ -18,22 +19,24 @@ const Data: React.FC<{
 
   // To define classNames for the info container
   const containerStyle =
-    "border-Neutral-PrimaryBackground bg-Neutral-SecondaryBackground w-2/5 flex flex-col p-3 rounded-rounded-6";
+    "border-Neutral-PrimaryBackground bg-Neutral-SecondaryBackground w-full flex flex-col p-3 mr-2 ml-2 rounded-rounded-6";
 
   return (
-    <div className={containerStyle}>
-      <p className="text-sm text-Text+Icon-00 font-semibold">{title}</p>
+    <>
       {/* to display the number of chats and active addons*/}
       {type === "number" && typeof data === "object" && "current" in data && (
-        <Summary data={data} />
+        <Summary title={title} data={data} className={containerStyle} />
       )}
-      {/* to display the line chart */}:
+      {/* to display the line chart */}
       {type === "line" && Array.isArray(data) && (
-        <div className={containerStyle}></div>
+        <>
+          <p className="text-sm text-Text+Icon-00 font-semibold">{title}</p>
+          <div className={containerStyle}></div>
+        </>
       )}
-      {/* to display the pie chart */}:
+      {/* to display the pie chart */}
       {type === "pie" && Array.isArray(data) && <></>}
-    </div>
+    </>
   );
 };
 
@@ -48,6 +51,7 @@ const Dashboard = () => {
           data={{ current: 14, change: 15 }}
           type="number"
         />
+
         {/* the number of active addon */}
         <Data
           title="محصول فعال"
@@ -55,6 +59,9 @@ const Dashboard = () => {
           type="number"
         />
       </div>
+
+      {/* the line chart */}
+      <LineChart />
     </div>
   );
 };
