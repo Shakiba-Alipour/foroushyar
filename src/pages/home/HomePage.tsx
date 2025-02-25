@@ -1,4 +1,5 @@
 import { Select } from "antd";
+import Dashboard from "./components/Dashboard";
 
 const HomePage = () => {
   const handleSelectChange = () => {};
@@ -22,6 +23,8 @@ const HomePage = () => {
           // options={products}
         />
       </div>
+
+      <Dashboard />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import GlobalButtons from "./components/GlobalButtons";
 import AllProducts from "./components/AllProducts";
-import SearchArea from "../../components/SearchArea";
+import Searchbar from "../../components/Searchbar";
 import Product, { ProductProps } from "./components/Product";
 
 const ProductsPage = () => {
@@ -24,7 +24,7 @@ const ProductsPage = () => {
   return (
     // <div className="flex-grow flex-col m-4">
     //   <h1 className="text-lg text-Text+Icon-01 font-bold">آگهی‌ها</h1>
-    //   <SearchArea />
+    //   <Searchbar />
 
     //   <AllProducts />
 

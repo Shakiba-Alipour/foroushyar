@@ -78,7 +78,7 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
           {value.map((addon) => addon.name).join("، ")}
         </div>
       ) : (
-        <p className={className}>محصول مرتبطی وجود نداره!</p>
+        <p className={className}>محصول مرتبطی وجود ندارد</p>
       );
   }
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchArea from "../../../components/SearchArea";
+import SearchArea from "../../../components/Searchbar";
 import { Space, Switch, Table } from "antd";
 
 // table content data type

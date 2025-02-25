@@ -11,7 +11,7 @@ const BulkMessagingPage = () => {
   // To handle click on prev button
   const PrevClickHandler = (prevStep: number) => {
     if (prevStep - 25 < 25) {
-      throw new Error("مرحله قبلی وجود نداره!");
+      throw new Error("مرحله قبلی وجود ندارد");
     }
     setStep(prevStep - 25);
   };
@@ -19,7 +19,7 @@ const BulkMessagingPage = () => {
   // To handle click on next button
   const NextClickHandler = (prevStep: number) => {
     if (prevStep + 25 > 100) {
-      throw new Error("مرحله بعدی وجود نداره!");
+      throw new Error("مرحله بعدی وجود ندارد");
     }
     setStep(prevStep + 25);
   };
