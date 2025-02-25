@@ -1,19 +1,24 @@
-import { Button, Drawer } from "antd";
+import { Button, Drawer, Input, InputRef } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import { Form } from "react-router-dom";
 import { useRef } from "react";
 import CancelSaveButton from "../../../components/CancelSaveButton";
+import TextArea, { TextAreaRef } from "antd/es/input/TextArea";
 
 const FaqForm = ({
   isDrawerOpen,
   setIsDrawerOpen,
+  loadedQuestion,
+  loadedAnswer,
 }: {
   isDrawerOpen: boolean;
   setIsDrawerOpen: (isDrawerOpen: boolean) => void;
+  loadedQuestion?: string;
+  loadedAnswer?: string;
 }) => {
   // reference to user inputs
-  const question = useRef<HTMLInputElement>(null);
-  const answer = useRef<HTMLTextAreaElement>(null);
+  const question = useRef<InputRef>(null);
+  const answer = useRef<TextAreaRef>(null);
 
   return (
     <Drawer
@@ -42,15 +47,17 @@ const FaqForm = ({
         </p>
         {/* the form */}
         <Form method="POST" className="mt-4 flex-grow">
-          <input
+          <Input
             placeholder="سوال"
+            defaultValue={loadedQuestion}
             name="question"
             required
             ref={question}
             className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold h-8 rounded-rounded-6"
           />
-          <textarea
+          <TextArea
             placeholder="پاسخ"
+            defaultValue={loadedAnswer}
             rows={8}
             name="answer"
             required
