@@ -2,6 +2,7 @@ import { List } from "antd";
 import Edit_Icon from "../../assets/Edit_Icon";
 import NewQuestion from "./components/NewQuestion";
 import { useState } from "react";
+import DisplayLoadedFaq from "./components/DisplayLoadedFaq";
 
 const FaqPage = () => {
   // this state checks if the drawer (FaqForm to enter a new question) is open or not
@@ -12,7 +13,11 @@ const FaqPage = () => {
     <div className="flex-grow flex-col">
       <h1 className="text-lg font-bold m-4 text-Text+Icon-01">سوالات متداول</h1>
 
-      <DisplayLoadedQuestions loadedQuestions={[]} />
+      {/* to display the table of faqs */}
+      <DisplayLoadedFaq
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
 
       {/* to add a new question */}
       <button
@@ -28,43 +33,6 @@ const FaqPage = () => {
         />
       )}
     </div>
-  );
-};
-
-// to load questions
-export async function loader() {}
-
-// to display the loaded faq
-const DisplayLoadedQuestions: React.FC<{
-  loadedQuestions: { question: string; answer: string }[];
-}> = ({ loadedQuestions }) => {
-  // if no questions had been entered before
-  if (!Array.isArray(loadedQuestions) || loadedQuestions.length === 0) {
-    return (
-      <p className="text-Neutral-LineDark flex justify-center m-4 align-middle">
-        هیچ سوالی وجود ندارد
-      </p>
-    );
-  }
-
-  //   if a list of questions is available
-  return (
-    <List
-      header={
-        <div className="flex justify-between font-iranYekan">
-          <p>سوال متداول</p>
-          <p>عملیات</p>
-        </div>
-      }
-      bordered
-      dataSource={loadedQuestions}
-      renderItem={(item) => (
-        <List.Item className=" flex flex-row justify-between">
-          <p>{item.question}</p>
-          <Edit_Icon />
-        </List.Item>
-      )}
-    />
   );
 };
 
