@@ -1,7 +1,13 @@
 // Icons are saved as function components for ease of use
 
-const Delete_Icon = ({ stroke = "#333B4F", onClick = () => {} }) => (
+interface Props {
+  isActive?: boolean;
+  onClick?: (...args: any[]) => any; // Accepts any function signature
+}
+
+const Delete_Icon: React.FC<Props> = ({ isActive, onClick }) => (
   <svg
+    className={`icon ${isActive ? "active" : ""}`}
     width="21"
     height="20"
     viewBox="0 0 21 20"

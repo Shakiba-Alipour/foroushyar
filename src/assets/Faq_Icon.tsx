@@ -1,7 +1,13 @@
 // Icons are saved as function components for ease of use
 
-const Faq_Icon = () => (
+interface Props {
+  isActive?: boolean;
+  onClick?: (...args: any[]) => any; // Accepts any function signature
+}
+
+const Faq_Icon: React.FC<Props> = ({ isActive, onClick }) => (
   <svg
+    className={`icon ${isActive ? "active" : ""}`}
     width="24"
     height="24"
     viewBox="0 0 24 24"

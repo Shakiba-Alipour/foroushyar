@@ -111,3 +111,11 @@ textarea {
 h1 {
   font-weight: bold;
 }
+
+.icon path {
+  stroke: #333b4f;
+}
+
+.active .icon path {
+  stroke: #f52d2d;
+}
