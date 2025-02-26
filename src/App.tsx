@@ -4,6 +4,7 @@ import HomePage from "./pages/home/HomePage";
 import Layout from "./layout/Layout";
 import FaqPage from "./pages/faq/FaqPage";
 import ProductsPage from "./pages/products/ProductsPage";
+import BulkMessagingPage from "./pages/messaging/BulkMessagingPage";
 
 // define routes
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "/faq", element: <FaqPage /> },
       { path: "/products", element: <ProductsPage /> },
+      { path: "/bulk-messaging", element: <BulkMessagingPage /> },
     ],
   },
 ]);
