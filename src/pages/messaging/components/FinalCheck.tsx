@@ -29,8 +29,9 @@ const FinalCheck = ({
       </div>
       <p className="font-bold text-Text+Icon-00 mt-4 mb-3">محتوای ارسالی</p>
       <div className="bg-Neutral-BaseBackground rounded-rounded-8 p-3 text-sm text-Text+Icon-01">
-        <p className="border-b-Neutral-Line">{title}</p>
-        {/* <span className="border-b-Neutral-Line" /> */}
+        <p>{title}</p>
+        {/* a horizontal line between the title and content */}
+        <hr className="border-Neutral-Line mt-2 mb-2" />
         <p>{content}</p>
       </div>
       <p className="font-bold text-Text+Icon-00 mt-4 mb-3">
