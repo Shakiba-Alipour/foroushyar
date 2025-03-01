@@ -46,13 +46,13 @@ const DisplayLoadedFaq = ({
   const data = useLoaderData();
 
   // if no questions had been entered before
-  // if (!Array.isArray(data) || data.length === 0) {
-  //   return (
-  //     <p className="text-Neutral-LineDark flex justify-center m-4 align-middle">
-  //       هیچ سوالی وجود ندارد
-  //     </p>
-  //   );
-  // }
+  if (!Array.isArray(data) || data.length === 0) {
+    return (
+      <p className="text-Neutral-LineDark flex justify-center m-4 align-middle">
+        هیچ سوالی وجود ندارد
+      </p>
+    );
+  }
 
   //   if a list of questions is available
   return (
