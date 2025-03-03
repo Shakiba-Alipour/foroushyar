@@ -13,6 +13,7 @@ const ProductsPage = () => {
       <ServiceButtons
         addonLabel="محصولات مرتبط همه"
         chatbotLabel="چت هوشمند همه"
+        isGlobal
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import AI_Icon from "../../../assets/AI_Icon";
 import { ProductProps } from "./Product";
+import ServiceButtons from "./ServiceButtons";
 
 const AllProducts = () => {
   // const products=useLoaderData()
@@ -33,7 +34,7 @@ const AllProducts = () => {
         >
           <div className="flex flex-col">
             <p>{product.name}</p>
-            <div className="flex flex-row w-fit mt-4 mb-2">
+            {/* <div className="flex flex-row w-fit mt-4 mb-2">
               <Button className="ml-1 font-semibold text-Primary-Default border-Primary-Background">
                 محصول مرتبط
               </Button>
@@ -45,7 +46,8 @@ const AllProducts = () => {
               >
                 ربات
               </Button>
-            </div>
+            </div> */}
+            <ServiceButtons addonLabel="محصول مرتبط" chatbotLabel="ربات" />
           </div>
 
           {/* To display the image of the product */}
