@@ -14,6 +14,8 @@ const ProductsPage = () => {
         addonLabel="محصولات مرتبط همه"
         chatbotLabel="چت هوشمند همه"
         isGlobal
+        isAddonActive
+        isChatbotActive={false}
       />
     </div>
   );

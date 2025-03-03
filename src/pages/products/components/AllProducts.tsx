@@ -34,20 +34,12 @@ const AllProducts = () => {
         >
           <div className="flex flex-col">
             <p>{product.name}</p>
-            {/* <div className="flex flex-row w-fit mt-4 mb-2">
-              <Button className="ml-1 font-semibold text-Primary-Default border-Primary-Background">
-                محصول مرتبط
-              </Button>
-              <Button
-                variant="solid"
-                className="mr-1 font-semibold bg-Success-Default text-Neutral-White stroke-Neutral-White"
-                icon={<AI_Icon />}
-                iconPosition="end"
-              >
-                ربات
-              </Button>
-            </div> */}
-            <ServiceButtons addonLabel="محصول مرتبط" chatbotLabel="ربات" />
+            <ServiceButtons
+              addonLabel="محصول مرتبط"
+              chatbotLabel="ربات"
+              isAddonActive={false}
+              isChatbotActive
+            />
           </div>
 
           {/* To display the image of the product */}

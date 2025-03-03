@@ -2,38 +2,65 @@
 
 import { Button } from "antd";
 import AI_Icon from "../../../assets/AI_Icon";
+import useFeatureToggle from "../hooks/useFeatureToggle";
 
 interface ButtonsProps {
   addonLabel: string;
   chatbotLabel: string;
   isGlobal?: boolean; //checks if the buttons are set for all products or not
+  isAddonActive: boolean;
+  isChatbotActive: boolean;
 }
 
 const ServiceButtons: React.FC<ButtonsProps> = ({
   addonLabel,
   chatbotLabel,
   isGlobal,
+  isAddonActive,
+  isChatbotActive,
 }) => {
   // Defined active button style
-  const activeStyle = "bg-Success-Default text-Neutral-White";
+  const activeStyle = " bg-Success-Default text-Neutral-White";
   // Defined inactive button style
-  const inActiveStyle = "text-Primary-Default border-Primary-Background";
+  const inActiveStyle = " text-Primary-Default border-Primary-Background";
   // container's styling
-  let containerStyle = "flex flex-row m-0  justify-around";
-  isGlobal
-    ? (containerStyle =
-        containerStyle + " w-full absolute bottom-16 right-0 left-0 z-50")
-    : (containerStyle = containerStyle + " w-fit justify-around  mt-4 mb-2");
+  let containerStyle = `flex flex-row m-0  justify-around ${
+    isGlobal ? " w-full absolute bottom-16 right-0 left-0 z-50" : " mt-4 mb-2"
+  }`;
+
+  // buttons styling
+  let buttonGeneralStyle = "w-5/12 px-4 py-2 font-semibold";
+
+  // useFeatureToggle hook
+  const globalChatbot = useFeatureToggle({
+    feature: "chatbot",
+    isFeatureActive: isChatbotActive,
+    isGlobal: isGlobal,
+  });
+  const globalAddon = useFeatureToggle({
+    feature: "addon",
+    isFeatureActive: isAddonActive,
+    isGlobal: isGlobal,
+  });
 
   return (
     <div className={containerStyle}>
-      <Button className="w-5/12 px-4 py-2 font-semibold" variant="solid">
+      <Button
+        className={`${buttonGeneralStyle} ${
+          isAddonActive ? activeStyle : inActiveStyle
+        }`}
+        // onClick={globalAddon.setIsActive}
+        variant="solid"
+      >
         {addonLabel}
       </Button>
       <Button
         icon={<AI_Icon />}
         iconPosition="end"
-        className="w-5/12 px-4 py-2 font-semibold"
+        className={`${buttonGeneralStyle} ${
+          isChatbotActive ? activeStyle : inActiveStyle
+        }`}
+        // onClick={globalChatbot.toggleFeature}
         variant="solid"
       >
         {chatbotLabel}

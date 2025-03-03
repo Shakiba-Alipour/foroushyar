@@ -43,7 +43,12 @@ const Product: React.FC<ProductProps> = ({
         {/* <UserInput title="تاریخچه چت‌ها" type="textArea" value={} /> */}
       </div>
 
-      <ServiceButtons addonLabel="محصولات مرتبط" chatbotLabel="چت هوشمند" />
+      <ServiceButtons
+        addonLabel="محصولات مرتبط"
+        chatbotLabel="چت هوشمند"
+        isAddonActive
+        isChatbotActive={false}
+      />
     </div>
   );
 };
