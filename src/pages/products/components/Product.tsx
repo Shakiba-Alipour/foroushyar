@@ -1,6 +1,7 @@
 import React from "react";
 import GlobalButtons from "./GlobalButtons";
 import UserInput from "./UserInput";
+import { Carousel } from "antd";
 
 export interface ProductProps {
   name: string;
@@ -8,7 +9,7 @@ export interface ProductProps {
   price: number;
   description: string;
   addon: ProductProps[];
-  imageSrc: string;
+  imagePaths: string | string[];
   // chatsHistory:
 }
 
@@ -18,11 +19,20 @@ const Product: React.FC<ProductProps> = ({
   price,
   description,
   addon,
-  imageSrc,
+  imagePaths,
 }) => {
   return (
     <div>
-      <img src={imageSrc} className="w-full max-h-72" />
+      {typeof imagePaths === "string" && (
+        <img src={imagePaths[0]} className="w-full max-h-72" alt={name} />
+      )}
+      {Array.isArray(imagePaths) && (
+        <Carousel adaptiveHeight dots>
+          {imagePaths.map((path) => (
+            <img src={path} className="w-full" alt={name} />
+          ))}
+        </Carousel>
+      )}
 
       <h1 className="text-Text+Icon-01 font-extrabold">{name}</h1>
 

@@ -1,19 +1,33 @@
 import { Button } from "antd";
 import AI_Icon from "../../../assets/AI_Icon";
-
-const iconStyle = {};
+import { ProductProps } from "./Product";
 
 const AllProducts = () => {
   // const products=useLoaderData()
-  const products = [
-    { id: 1, name: "عنوان محصول", image: "" },
-    { id: 2, name: "عنوان محصول", image: "" },
+  const products: ProductProps[] = [
+    {
+      name: "محصول اول",
+      id: 1,
+      price: 54,
+      description: "توضیحات اول",
+      addon: [],
+      imagePaths: "../test.jpg",
+    },
+    {
+      name: "محصول دوم",
+      id: 2,
+      price: 90,
+      description: "توضیحات دوم",
+      addon: [],
+      imagePaths: "../test.jpg",
+    },
   ];
+
   return (
     <div className="mt-2 mb-2 mr-4 ml-4">
-      {products.map((product: { id: number; name: string; image: string }) => (
+      {products.map((product: ProductProps) => (
         <div
-          className="mb-8 border border-Text+bg-Text+Icon-05 rounded-rounded-10 p-3 w-full"
+          className="mb-8 border border-Text+bg-Text+Icon-05 rounded-rounded-10 p-3 w-full flex flex-row justify-between"
           key={product.id}
           onClick={() => {}}
         >
@@ -33,7 +47,13 @@ const AllProducts = () => {
               </Button>
             </div>
           </div>
-          <img src={product.image} />
+
+          {/* To display the image of the product */}
+          {typeof product.imagePaths === "string" ? (
+            <img src={product.imagePaths} />
+          ) : (
+            <img src={product.imagePaths[0]} />
+          )}
         </div>
       ))}
     </div>
