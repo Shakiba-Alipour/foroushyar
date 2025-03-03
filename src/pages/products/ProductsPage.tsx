@@ -1,6 +1,6 @@
-import GlobalButtons from "./components/GlobalButtons";
 import AllProducts from "./components/AllProducts";
 import Searchbar from "../../components/Searchbar";
+import ServiceButtons from "./components/ServiceButtons";
 
 const ProductsPage = () => {
   return (
@@ -10,9 +10,9 @@ const ProductsPage = () => {
 
       <AllProducts />
 
-      <GlobalButtons
-        addonTitle="محصولات مرتبط همه"
-        chatbotTitle="چت هوشمند همه"
+      <ServiceButtons
+        addonLabel="محصولات مرتبط همه"
+        chatbotLabel="چت هوشمند همه"
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import GlobalButtons from "./GlobalButtons";
 import UserInput from "./UserInput";
 import { Carousel } from "antd";
+import ServiceButtons from "./ServiceButtons";
 
 export interface ProductProps {
   name: string;
@@ -43,7 +43,7 @@ const Product: React.FC<ProductProps> = ({
         {/* <UserInput title="تاریخچه چت‌ها" type="textArea" value={} /> */}
       </div>
 
-      <GlobalButtons addonTitle="محصولات مرتبط" chatbotTitle="چت هوشمند" />
+      <ServiceButtons addonLabel="محصولات مرتبط" chatbotLabel="چت هوشمند" />
     </div>
   );
 };
