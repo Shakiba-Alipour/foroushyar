@@ -79,4 +79,7 @@ const FaqForm = ({
   );
 };
 
+// to save the entered data to the backend
+export function action() {}
+
 export default FaqForm;

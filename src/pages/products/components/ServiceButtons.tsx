@@ -21,7 +21,7 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
 }) => {
   // Defined active button style
   const activeStyle =
-    " bg-Success-Default text-Neutral-White hover:!border-Success-Default hover:!text-Success-Default";
+    " bg-Success-Default text-Neutral-White hover:!border-Success-Hover hover:!text-Success-Hover";
   // Defined inactive button style
   const inActiveStyle =
     " text-Primary-Default border-Primary-Background hover:!border-Primary-Hover hover:!text-Primary-Hover";
@@ -57,14 +57,16 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
         {addonLabel}
       </Button>
       <Button
-        icon={<AI_Icon />}
         iconPosition="end"
+        // active and inactive styles cover background and border
+        // activeAi and ai style cover ai icon
         className={`${buttonGeneralStyle} ${
           chatbotHook.isActive ? activeStyle : inActiveStyle
-        }`}
+        } ${chatbotHook.isActive ? "activeAi" : " ai"}`}
         onClick={chatbotHook.toggleFeature}
         variant="solid"
       >
+        {<AI_Icon isActive={chatbotHook.isActive} />}
         {chatbotLabel}
       </Button>
     </div>

@@ -39,7 +39,7 @@ const Menu = () => {
               {/* isActive is added to change the color of the active icon */}
               {/* isActive is added to the parent element of the icon to change the color of whole parts of the icon*/}
               {/* if isActive was added to the Icon itself, just the color of some parts of the icon would change (just when you hold the mouse click on it)*/}
-              <NavLink to={path} end className={isActive ? "active" : ""}>
+              <NavLink to={path} end className={isActive ? "activePath" : ""}>
                 <Icon />
               </NavLink>
 

@@ -7,7 +7,7 @@ interface Props {
 
 const Faq_Icon: React.FC<Props> = ({ isActive, onClick }) => (
   <svg
-    className={`icon ${isActive ? "active" : ""}`}
+    className={`icon ${isActive ? "activePath" : ""}`}
     width="24"
     height="24"
     viewBox="0 0 24 24"

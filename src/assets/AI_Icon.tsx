@@ -1,13 +1,14 @@
 // Icons are saved as function components for ease of use
 
 interface Props {
+  color?: string;
   isActive?: boolean;
   onClick?: (...args: any[]) => any; // Accepts any function signature
 }
 
-const AI_Icon: React.FC<Props> = ({ isActive, onClick }) => (
+const AI_Icon: React.FC<Props> = ({ color, isActive, onClick }) => (
   <svg
-    className={`icon ${isActive ? "active" : ""}`}
+    className={`icon ${isActive ? "activeAi" : "ai"}`}
     width="24"
     height="24"
     viewBox="0 0 24 24"

@@ -7,7 +7,7 @@ interface Props {
 
 const Messaging_Icon: React.FC<Props> = ({ isActive, onClick }) => (
   <svg
-    className={`icon ${isActive ? "active" : ""}`}
+    className={`icon ${isActive ? "active path" : ""}`}
     width="24"
     height="24"
     viewBox="0 0 24 24"

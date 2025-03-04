@@ -112,10 +112,26 @@ h1 {
   font-weight: bold;
 }
 
-.icon path {
+.iconPath {
   stroke: #333b4f;
 }
 
-.active .icon path {
+.activePath .icon path {
+  stroke: #f52d2d;
+}
+
+.activeAi .icon path {
+  stroke: #ffffff;
+}
+
+:hover .activeAi .icon path {
+  stroke: #28d4ab;
+}
+
+.ai .icon path {
+  stroke: #be3737;
+}
+
+:hover .ai .icon path {
   stroke: #f52d2d;
 }
