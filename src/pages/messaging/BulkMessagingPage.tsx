@@ -4,6 +4,7 @@ import ProductSelection from "./components/ProductSelection";
 import { useState } from "react";
 import MessageContent from "./components/MessageContent";
 import FinalCheck from "./components/FinalCheck";
+import Notification from "../../components/Notification";
 
 const BulkMessagingPage = () => {
   const [step, setStep] = useState(25);
@@ -11,7 +12,9 @@ const BulkMessagingPage = () => {
   // To handle click on prev button
   const PrevClickHandler = (prevStep: number) => {
     if (prevStep - 25 < 25) {
-      throw new Error("مرحله قبلی وجود ندارد");
+      // throw new Error("مرحله قبلی وجود ندارد");
+      <Notification text="مرحله قبلی وجود ندارد" isSuccessful={false} />;
+      return;
     }
     setStep(prevStep - 25);
   };
@@ -25,7 +28,7 @@ const BulkMessagingPage = () => {
   };
 
   return (
-    <div className="flex-grow flex-col m-4">
+    <div className="flex flex-col m-4">
       <Progress
         strokeColor="#f52d2d"
         showInfo={false}

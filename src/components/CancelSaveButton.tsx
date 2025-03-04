@@ -24,7 +24,7 @@ const CancelSaveButton: React.FC<Props> = ({
     "w-1/2 mr-2 font-bold text-Neutral-White bg-Primary-Default hover:bg-Primary-Hover cursor-pointer";
 
   return (
-    <div className="w-full flex justify-between">
+    <div className="w-11/12 flex justify-between sticky bottom-16 lg:fixed self-center lg:bottom-4">
       <Button className={whiteBg} onClick={onWhiteClick}>
         {whiteButtonLabel}
       </Button>
