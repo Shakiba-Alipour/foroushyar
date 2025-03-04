@@ -15,8 +15,8 @@ const useFeatureToggle = ({
 }: ToggleProps) => {
   const [isActive, setIsActive] = useState(isFeatureActive);
 
-  const toggleFeature = async (prevState: boolean) => {
-    setIsActive(!prevState);
+  const toggleFeature = async () => {
+    setIsActive((prevState) => !prevState);
 
     //try-catch to send new state to the API
   };

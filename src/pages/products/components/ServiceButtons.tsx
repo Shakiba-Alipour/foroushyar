@@ -20,9 +20,11 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
   isChatbotActive,
 }) => {
   // Defined active button style
-  const activeStyle = " bg-Success-Default text-Neutral-White";
+  const activeStyle =
+    " bg-Success-Default text-Neutral-White hover:!border-Success-Default hover:!text-Success-Default";
   // Defined inactive button style
-  const inActiveStyle = " text-Primary-Default border-Primary-Background";
+  const inActiveStyle =
+    " text-Primary-Default border-Primary-Background hover:!border-Primary-Hover hover:!text-Primary-Hover";
   // container's styling
   let containerStyle = `flex flex-row m-0  justify-around ${
     isGlobal ? " w-full absolute bottom-16 right-0 left-0 z-50" : " mt-4 mb-2"
@@ -32,12 +34,12 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
   let buttonGeneralStyle = "w-5/12 px-4 py-2 font-semibold";
 
   // useFeatureToggle hook
-  const globalChatbot = useFeatureToggle({
+  const chatbotHook = useFeatureToggle({
     feature: "chatbot",
     isFeatureActive: isChatbotActive,
     isGlobal: isGlobal,
   });
-  const globalAddon = useFeatureToggle({
+  const addonHook = useFeatureToggle({
     feature: "addon",
     isFeatureActive: isAddonActive,
     isGlobal: isGlobal,
@@ -47,9 +49,9 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
     <div className={containerStyle}>
       <Button
         className={`${buttonGeneralStyle} ${
-          isAddonActive ? activeStyle : inActiveStyle
+          addonHook.isActive ? activeStyle : inActiveStyle
         }`}
-        // onClick={globalAddon.setIsActive}
+        onClick={addonHook.toggleFeature}
         variant="solid"
       >
         {addonLabel}
@@ -58,9 +60,9 @@ const ServiceButtons: React.FC<ButtonsProps> = ({
         icon={<AI_Icon />}
         iconPosition="end"
         className={`${buttonGeneralStyle} ${
-          isChatbotActive ? activeStyle : inActiveStyle
+          chatbotHook.isActive ? activeStyle : inActiveStyle
         }`}
-        // onClick={globalChatbot.toggleFeature}
+        onClick={chatbotHook.toggleFeature}
         variant="solid"
       >
         {chatbotLabel}
