@@ -6,6 +6,7 @@ import FaqPage from "./pages/faq/FaqPage";
 import ProductsPage from "./pages/products/ProductsPage";
 import BulkMessagingPage from "./pages/messaging/BulkMessagingPage";
 import MainPage from "./pages/main/MainPage";
+import CallbackPage from "./pages/main/CallbackPage";
 
 // define routes
 const router = createBrowserRouter([
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <MainPage /> }, // Landing page before login
-      { path: "auth/callback", element: <></> }, // Handles OAuth response
+      { path: "auth/callback", element: <CallbackPage /> }, // Handles OAuth response
       {
         path: "dashboard",
         children: [
