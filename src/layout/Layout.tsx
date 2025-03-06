@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 // a layout that contains header, menu, and page content
 // menu is sticked to the bottom of the screen in mobile devices
 const Layout = () => {
+  // To check the screen size
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 680);
 
   // this hook handles screen resize
