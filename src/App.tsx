@@ -5,6 +5,7 @@ import Layout from "./layout/Layout";
 import FaqPage from "./pages/faq/FaqPage";
 import ProductsPage from "./pages/products/ProductsPage";
 import BulkMessagingPage from "./pages/messaging/BulkMessagingPage";
+import MainPage from "./pages/main/MainPage";
 
 // define routes
 const router = createBrowserRouter([
@@ -12,10 +13,17 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: "/faq", element: <FaqPage /> },
-      { path: "/products", element: <ProductsPage /> },
-      { path: "/bulk-messaging", element: <BulkMessagingPage /> },
+      { index: true, element: <MainPage /> }, // Landing page before login
+      { path: "auth/callback", element: <></> }, // Handles OAuth response
+      {
+        path: "dashboard",
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: "faq", element: <FaqPage /> },
+          { path: "products", element: <ProductsPage /> },
+          { path: "bulk-messaging", element: <BulkMessagingPage /> },
+        ],
+      },
     ],
   },
 ]);

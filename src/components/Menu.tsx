@@ -9,11 +9,10 @@ import { useEffect, useState } from "react";
 const Menu = () => {
   //   menu items
   const items = [
-    // { path: "/", key: "", icon: <AI /> },
-    { path: "products", key: "product", Icon: ProductsIcon },
-    { path: "/", key: "home", Icon: HomeIcon },
-    { path: "bulk-messaging", key: "messaging", Icon: MessagingIcon },
-    { path: "faq", key: "faq", Icon: FaqIcon },
+    { path: "dashboard/products", key: "product", Icon: ProductsIcon },
+    { path: "dashboard", key: "home", Icon: HomeIcon },
+    { path: "dashboard/bulk-messaging", key: "messaging", Icon: MessagingIcon },
+    { path: "dashboard/faq", key: "faq", Icon: FaqIcon },
   ];
 
   // current path
@@ -23,7 +22,7 @@ const Menu = () => {
 
   // Update active item when the route changes
   useEffect(() => {
-    setActiveItem(location.pathname.split("/")[1] || "/");
+    setActiveItem(location.pathname || "/");
   }, [location.pathname]);
 
   return (
