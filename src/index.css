@@ -20,7 +20,7 @@
   font-family: IRANYekanXFaNum;
   font-style: normal;
   font-weight: 300;
-  src: url("/public/fonts//IRANYekanXFaNum-Light.ttf") format("truetype");
+  src: url("/public/fonts/IRANYekanXFaNum-Light.ttf") format("truetype");
 }
 
 @font-face {
@@ -68,14 +68,14 @@
   font-family: IRANYekanXFaNum;
   font-style: normal;
   font-weight: bold;
-  src: url("/public/fonts//IRANYekanXFaNum-Bold.ttf") format("truetype");
+  src: url("/public/fonts/IRANYekanXFaNum-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: IRANYekanXFaNum;
   font-style: normal;
   font-weight: normal;
-  src: url("/public/fonts//IRANYekanXFaNum-Regular.ttf") format("truetype");
+  src: url("/public/fonts/IRANYekanXFaNum-Regular.ttf") format("truetype");
 }
 
 body {
