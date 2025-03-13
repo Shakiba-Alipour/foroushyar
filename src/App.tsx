@@ -7,6 +7,7 @@ import ProductsPage from "./pages/products/ProductsPage";
 import BulkMessagingPage from "./pages/messaging/BulkMessagingPage";
 import MainPage from "./pages/main/MainPage";
 import CallbackPage from "./pages/main/CallbackPage";
+import { useEffect, useState } from "react";
 
 // define routes
 const router = createBrowserRouter([
@@ -28,6 +29,17 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+// Add Bearer Token Authorization Header
+// const [product, setProduct] = useState(null);
+// const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+// useEffect(() => {
+//   const headers = { Authorization: "Bearer my-token" };
+//   fetch(API_BASE_URL, { headers })
+//     .then((response) => response.json())
+//     .then((data) => setProduct(data));
+// }, []);
 
 function App() {
   return <RouterProvider router={router} />;

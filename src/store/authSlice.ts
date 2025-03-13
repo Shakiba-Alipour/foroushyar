@@ -3,14 +3,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface User {
   // NULL MUST BE REMOVED FROM THE USER INTERFACE
   full_name: string | null;
+  id: string | null;
   shop_name: string | null;
   address: string | null;
   description: string | null;
   phone_panel: number | null;
+  phone: number | null;
   instagram_id: string | null;
   website_url: string | null;
   send_social: boolean | null;
   send_contact: boolean | null;
+  has_follow_up_message: boolean | null;
   followup_message: string | null;
   welcome_message: string | null;
 }
@@ -23,18 +26,23 @@ interface AuthState {
 const initialState: AuthState = {
   user: {
     full_name: localStorage.getItem("fullName"),
+    id: localStorage.getItem("id"),
     shop_name: localStorage.getItem("shopName"),
     address: localStorage.getItem("address"),
     description: localStorage.getItem("description"),
     phone_panel: Number(localStorage.getItem("phonePanel")),
+    phone: Number(localStorage.getItem("phone")),
     instagram_id: localStorage.getItem("instagramId"),
     website_url: localStorage.getItem("websiteUrl"),
     send_social: Boolean(localStorage.getItem("sendSocial")),
     send_contact: Boolean(localStorage.getItem("sendContact")),
+    has_follow_up_message: Boolean(
+      localStorage.getItem("has_follow_up_message")
+    ),
     followup_message: localStorage.getItem("followupMessage"),
     welcome_message: localStorage.getItem("welcomeMessage"),
   },
-  token: localStorage.getItem("accessToken"),
+  token: localStorage.getItem("access_token"),
 };
 
 const authSlice = createSlice({

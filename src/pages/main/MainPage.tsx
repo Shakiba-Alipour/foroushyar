@@ -1,26 +1,27 @@
 import { Button } from "antd";
 import axios from "axios";
-import { APP_BASE_URL } from "./api/auth";
+import { useSearchParams } from "react-router-dom";
 
 // This page is displayed at the base url, before the login button is clicked
 const MainPage = () => {
   // To handle logging in
   const loginHandler = async () => {
     // To authenticate the user
-    const returnUrl = "http://localhost:3000/dashboard";
-    const redirectUrl = "";
+    const returnUrl = process.env.REACT_APP_AUTH_CALLBACK_URL as string;
+    const redirectUrl = process.env.REACT_APP_REDIRECT_URL as string;
+
     try {
       const response = await axios.get(redirectUrl, {
         params: {
-          redturn_url: returnUrl,
+          return_url: returnUrl,
           action: "LANDING_PAGE", // example
         },
       });
 
-      localStorage.setItem("authResponse", JSON.stringify(response.data));
-
-      // To display the loading page
-      window.location.href = "http://localhost:3000/auth/callback";
+      if (response) {
+        // Redirect to authentication callback
+        window.location.href = response.data.data.redirect_url;
+      }
     } catch (error) {
       console.error("Error starting authentication:", error);
     }
@@ -28,9 +29,13 @@ const MainPage = () => {
 
   return (
     // login button
-    <Button className="w-1/2 self-center" onClick={loginHandler}>
-      فعال‌سازی افزونه
-    </Button>
+    <div className="flex flex-col items-center">
+      <h1>رباتی هوشمند برای پاسخگویی به چت‌های شما</h1>
+      <p>راحت، آسان، ایمن، مطمئن</p>
+      <Button className="w-1/2 self-center" onClick={loginHandler}>
+        فعال‌سازی افزونه
+      </Button>
+    </div>
   );
 };
 
