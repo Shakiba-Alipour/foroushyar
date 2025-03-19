@@ -1,28 +1,10 @@
-import { Select } from "antd";
 import Dashboard from "./components/Dashboard";
 
 const HomePage = () => {
-  const handleSelectChange = () => {};
   return (
     // flex-grow pushes the menu to the bottom if there's not enough content
-    <div className="flex-grow flex-col m-4">
+    <div className="flex flex-col m-4 w-full lg:w-5/6 px-4 lg:px-0">
       <h1 className="text-lg font-bold w-fit text-Text+Icon-01">خانه</h1>
-
-      <div className="flex flex-row justify-items-center justify-around w-full mt-2 mb-2">
-        <Select
-          defaultValue="30 روز گذشته"
-          className="text-right"
-          size="large"
-          onChange={handleSelectChange}
-          // options={products}
-        />
-        <Select
-          defaultValue="همه آگهی‌ها"
-          size="large"
-          onChange={handleSelectChange}
-          // options={products}
-        />
-      </div>
 
       <Dashboard />
     </div>

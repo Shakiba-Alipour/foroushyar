@@ -1,6 +1,8 @@
 import { Button } from "antd";
 import axios from "axios";
-import { useSearchParams } from "react-router-dom";
+import Features from "./components/Features";
+import Statistics from "./components/Statistics";
+import Contact from "./components/Contact";
 
 // This page is displayed at the base url, before the login button is clicked
 const MainPage = () => {
@@ -28,13 +30,23 @@ const MainPage = () => {
   };
 
   return (
-    // login button
-    <div className="flex flex-col items-center">
-      <h1>رباتی هوشمند برای پاسخگویی به چت‌های شما</h1>
-      <p>راحت، آسان، ایمن، مطمئن</p>
-      <Button className="w-1/2 self-center" onClick={loginHandler}>
-        فعال‌سازی افزونه
-      </Button>
+    <div className="flex flex-col items-center md:w-5/6 sm:w-5/6 lg:w-full mt-8 self-center lg:text-xl">
+      <div className="flex flex-col items-center" id="home">
+        <h1>رباتی هوشمند برای پاسخگویی به چت‌های شما</h1>
+        <p>راحت، آسان، ایمن، مطمئن</p>
+        <Button
+          className="w-1/2 text-Neutral-White bg-Primary-Background hover:!bg-Neutral-SecondaryBackground hover:!text-Primary-Hover hover:!border-Primary-Hover self-center mt-8 lg:text-lg"
+          onClick={loginHandler}
+        >
+          فعال‌سازی افزونه
+        </Button>
+      </div>
+
+      <Features />
+
+      <Statistics />
+
+      <Contact />
     </div>
   );
 };

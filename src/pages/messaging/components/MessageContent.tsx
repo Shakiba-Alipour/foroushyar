@@ -19,7 +19,7 @@ const MessageContent = () => {
           name="question"
           required
           ref={title}
-          className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold h-8 rounded-rounded-6"
+          className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-noneh-8 rounded-rounded-6"
         />
         <textarea
           placeholder="محتوا"
@@ -27,7 +27,7 @@ const MessageContent = () => {
           name="answer"
           required
           ref={content}
-          className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold rounded-rounded-6"
+          className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none rounded-rounded-6"
         />
       </Form>
     </div>

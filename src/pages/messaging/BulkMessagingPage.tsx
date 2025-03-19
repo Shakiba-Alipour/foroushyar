@@ -12,7 +12,6 @@ const BulkMessagingPage = () => {
   // To handle click on prev button
   const PrevClickHandler = (prevStep: number) => {
     if (prevStep - 25 < 25) {
-      // throw new Error("مرحله قبلی وجود ندارد");
       <Notification text="مرحله قبلی وجود ندارد" isSuccessful={false} />;
       return;
     }
@@ -22,13 +21,14 @@ const BulkMessagingPage = () => {
   // To handle click on next button
   const NextClickHandler = (prevStep: number) => {
     if (prevStep + 25 > 100) {
-      throw new Error("مرحله بعدی وجود ندارد");
+      <Notification text="مرحله بعدی وجود ندارد" isSuccessful={false} />;
+      return;
     }
     setStep(prevStep + 25);
   };
 
   return (
-    <div className="flex flex-col m-4">
+    <div className="flex flex-col m-4 w-full">
       <Progress
         strokeColor="#f52d2d"
         showInfo={false}

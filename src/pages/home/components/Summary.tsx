@@ -7,7 +7,8 @@ const Summary = ({
   className,
 }: {
   title: string;
-  data: { current: number; change: number };
+  // data: { current: number; change: number };
+  data: number;
   className: string;
 }) => {
   return (
@@ -18,21 +19,19 @@ const Summary = ({
         </span>
       }
       valueRender={() => (
-        <span className="text-xl font-bold text-Text+Icon-00 mr-3">
-          {data.current}
-        </span>
+        <span className="text-xl font-bold text-Text+Icon-00 mr-3">{data}</span>
       )}
       precision={0}
-      suffix={
-        <span
-          className={`text-sm h-fit flex flex-row-reverse ${
-            data.change >= 0 ? "text-Success-Default" : "text-Warning-Default"
-          }`}
-        >
-          {data.change >= 0 ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
-          {" %" + Math.abs(data.change)}
-        </span>
-      }
+      // suffix={
+      //   <span
+      //     className={`text-sm h-fit flex flex-row-reverse ${
+      //       data.change >= 0 ? "text-Success-Default" : "text-Warning-Default"
+      //     }`}
+      //   >
+      //     {data.change >= 0 ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
+      //     {" %" + Math.abs(data.change)}
+      //   </span>
+      // }
       className={className}
     />
   );

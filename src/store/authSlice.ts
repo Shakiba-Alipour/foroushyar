@@ -1,21 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface User {
-  // NULL MUST BE REMOVED FROM THE USER INTERFACE
-  full_name: string | null;
-  id: string | null;
-  shop_name: string | null;
-  address: string | null;
-  description: string | null;
-  phone_panel: number | null;
-  phone: number | null;
-  instagram_id: string | null;
-  website_url: string | null;
-  send_social: boolean | null;
-  send_contact: boolean | null;
-  has_follow_up_message: boolean | null;
-  followup_message: string | null;
-  welcome_message: string | null;
+export interface User {
+  full_name: string;
+  id: string;
+  shop_name: string;
+  address: string;
+  description: string;
+  phone_panel: string;
+  phone: string;
+  instagram_id: string;
+  website_url: string;
+  send_social: string;
+  send_contact: string;
+  has_follow_up_message: string;
+  followup_message: string;
+  welcome_message: string;
 }
 
 interface AuthState {
@@ -25,24 +24,22 @@ interface AuthState {
 
 const initialState: AuthState = {
   user: {
-    full_name: localStorage.getItem("fullName"),
-    id: localStorage.getItem("id"),
-    shop_name: localStorage.getItem("shopName"),
-    address: localStorage.getItem("address"),
-    description: localStorage.getItem("description"),
-    phone_panel: Number(localStorage.getItem("phonePanel")),
-    phone: Number(localStorage.getItem("phone")),
-    instagram_id: localStorage.getItem("instagramId"),
-    website_url: localStorage.getItem("websiteUrl"),
-    send_social: Boolean(localStorage.getItem("sendSocial")),
-    send_contact: Boolean(localStorage.getItem("sendContact")),
-    has_follow_up_message: Boolean(
-      localStorage.getItem("has_follow_up_message")
-    ),
-    followup_message: localStorage.getItem("followupMessage"),
-    welcome_message: localStorage.getItem("welcomeMessage"),
+    full_name: localStorage.getItem("full_name") || "",
+    id: localStorage.getItem("id") || "",
+    shop_name: localStorage.getItem("shop_name") || "",
+    address: localStorage.getItem("address") || "",
+    description: localStorage.getItem("description") || "",
+    phone_panel: localStorage.getItem("phone_panel") || "",
+    phone: localStorage.getItem("phone") || "",
+    instagram_id: localStorage.getItem("instagram_id") || "",
+    website_url: localStorage.getItem("website_url") || "",
+    send_social: localStorage.getItem("send_social") || "",
+    send_contact: localStorage.getItem("send_contact") || "",
+    has_follow_up_message: localStorage.getItem("has_follow_up_message") || "",
+    followup_message: localStorage.getItem("followup_message") || "",
+    welcome_message: localStorage.getItem("welcome_message") || "",
   },
-  token: localStorage.getItem("access_token"),
+  token: localStorage.getItem("access_token") || "",
 };
 
 const authSlice = createSlice({
@@ -59,6 +56,19 @@ const authSlice = createSlice({
       // Clear the authState from the app
       state.user = null;
       state.token = null;
+    },
+    update: (state, action: PayloadAction<{ user: User }>) => {
+      // to update user data in the redux store
+      // Object.assign(state.user, action.payload) updates only the fields provided
+      // in action.payload without replacing the whole user object.
+      if (state.user) {
+        // Object.entries(action.payload.user).forEach(([key, value]) => {
+        //   if (value !== null) {
+        //     (state.user as any)[key] = value;
+        //   }
+        // });
+        state.user = action.payload.user;
+      }
     },
   },
 });

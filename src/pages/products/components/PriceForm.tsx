@@ -14,6 +14,9 @@ const PriceForm = ({
   // reference to user input
   const price = useRef<InputRef>(null);
 
+  // to update product price
+  const updatePriceHandler = (value: string) => {};
+
   return (
     <Drawer
       placement="bottom"

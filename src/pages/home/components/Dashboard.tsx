@@ -7,7 +7,8 @@ import LineChart from "./LineChart";
 // or an array contianing chart's data (number[]) and chart's tyope
 const Data: React.FC<{
   title: string;
-  data: { current: number; change: number } | number[];
+  // data: { current: number; change: number } | number[];
+  data: number;
   type: "line" | "pie" | "number";
 }> = ({ title, data, type }) => {
   // // this state stores previous number of chats and active addons to calculate the change
@@ -24,7 +25,7 @@ const Data: React.FC<{
   return (
     <>
       {/* to display the number of chats and active addons*/}
-      {type === "number" && typeof data === "object" && "current" in data && (
+      {type === "number" && (
         <Summary title={title} data={data} className={containerStyle} />
       )}
       {/* to display the line chart */}
@@ -43,21 +44,13 @@ const Data: React.FC<{
 // this component displays main info: number of chats, number of active addon, line chart, pie chart
 const Dashboard = () => {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex flex-row justify-items-center justify-around w-full mt-4 mb-4">
         {/* the number of chats */}
-        <Data
-          title="تعداد چت‌ها"
-          data={{ current: 14, change: 15 }}
-          type="number"
-        />
+        <Data title="تعداد چت‌ها" data={14} type="number" />
 
         {/* the number of active addon */}
-        <Data
-          title="محصول فعال"
-          data={{ current: 20, change: -5 }}
-          type="number"
-        />
+        <Data title="محصول فعال" data={20} type="number" />
       </div>
 
       {/* the line chart */}
