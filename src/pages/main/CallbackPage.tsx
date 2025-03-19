@@ -35,28 +35,26 @@ const CallbackPage = () => {
             state: authState,
           });
 
-          console.log(response);
-
           const newToken = response.data.data.user.access_token;
 
           if (newToken) {
             // to create the user object
             const newUser = {
-              full_name: response.data.data.user.full_name,
-              shop_name: response.data.data.user.shop_name,
-              address: response.data.data.user.address,
-              description: response.data.data.user.description,
-              phone_panel: response.data.data.user.phone_panel,
-              id: response.data.data.user.id,
-              phone: response.data.data.user.phone,
-              instagram_id: response.data.data.user.instagram_id,
-              website_url: response.data.data.user.website_url,
-              send_social: response.data.data.user.send_social,
-              send_contact: response.data.data.user.send_contact,
-              followup_message: response.data.data.user.followup_message,
+              full_name: response.data.data.user.full_name || "",
+              shop_name: response.data.data.user.shop_name || "",
+              address: response.data.data.user.address || "",
+              description: response.data.data.user.description || "",
+              phone_panel: response.data.data.user.phone_panel || "",
+              id: response.data.data.user.id || "",
+              phone: response.data.data.user.phone || "",
+              instagram_id: response.data.data.user.instagram_id || "",
+              website_url: response.data.data.user.website_url || "",
+              send_social: response.data.data.user.send_social || "",
+              send_contact: response.data.data.user.send_contact || "",
+              followup_message: response.data.data.user.followup_message || "",
               has_follow_up_message:
-                response.data.data.user.has_follow_up_message,
-              welcome_message: response.data.data.user.welcome_message,
+                response.data.data.user.has_follow_up_message || "",
+              welcome_message: response.data.data.user.welcome_message || "",
             };
 
             // save the access token and user data in the local storage
