@@ -8,7 +8,6 @@ const DisplayShopData = ({
   onUpdate: (id: string, value: string | number) => void;
 }) => {
   // to get the data from redux
-  // const user = useAppSelector((store) => store.auth.user);
   const user = useSelector((state: RootState) => state.auth.user);
 
   return (

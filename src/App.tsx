@@ -8,6 +8,8 @@ import BulkMessagingPage from "./pages/messaging/BulkMessagingPage";
 import MainPage from "./pages/main/MainPage";
 import CallbackPage from "./pages/main/CallbackPage";
 import CommandsPage from "./pages/commands/CommandsPage";
+import { faqLoader } from "./pages/settings/components/DisplayLoadedFaq";
+import { postsLoader } from "./pages/products/components/AllProducts";
 
 // define routes
 const router = createBrowserRouter([
@@ -21,8 +23,8 @@ const router = createBrowserRouter([
         path: "dashboard",
         children: [
           { index: true, element: <HomePage /> },
-          { path: "settings", element: <SettingsPage /> },
-          { path: "products", element: <ProductsPage /> },
+          { path: "settings", element: <SettingsPage />, loader: faqLoader },
+          { path: "products", element: <ProductsPage />, loader: postsLoader },
           { path: "bulk-messaging", element: <BulkMessagingPage /> },
           { path: "commands", element: <CommandsPage /> },
         ],

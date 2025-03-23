@@ -6,7 +6,7 @@ import ServiceButtons from "./ServiceButtons";
 export interface ProductProps {
   name: string;
   id: number;
-  price: number;
+  price: string;
   description: string;
   addon: ProductProps[];
   imagePaths: string | string[];

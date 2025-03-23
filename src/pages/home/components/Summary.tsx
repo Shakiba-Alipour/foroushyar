@@ -14,7 +14,7 @@ const Summary = ({
   return (
     <Statistic
       title={
-        <span className="text-Text+Icon-00 flex justify-self-start w-fit">
+        <span className="text-Text+Icon-00 flex justify-self-start w-fit font-semibold">
           {title}
         </span>
       }

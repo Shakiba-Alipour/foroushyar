@@ -1,28 +1,28 @@
-import { Button } from "antd";
-import AI_Icon from "../../../assets/AI_Icon";
 import { ProductProps } from "./Product";
 import ServiceButtons from "./ServiceButtons";
+import api from "../../../api/auth";
+import { useLoaderData } from "react-router-dom";
 
 const AllProducts = () => {
-  // const products=useLoaderData()
-  const products: ProductProps[] = [
-    {
-      name: "محصول اول",
-      id: 1,
-      price: 54,
-      description: "توضیحات اول",
-      addon: [],
-      imagePaths: "../test.jpg",
-    },
-    {
-      name: "محصول دوم",
-      id: 2,
-      price: 90,
-      description: "توضیحات دوم",
-      addon: [],
-      imagePaths: "../test.jpg",
-    },
-  ];
+  const products = useLoaderData();
+  // const products: ProductProps[] = [
+  //   {
+  //     name: "محصول اول",
+  //     id: 1,
+  //     price: 54,
+  //     description: "توضیحات اول",
+  //     addon: [],
+  //     imagePaths: "../test.jpg",
+  //   },
+  //   {
+  //     name: "محصول دوم",
+  //     id: 2,
+  //     price: 90,
+  //     description: "توضیحات دوم",
+  //     addon: [],
+  //     imagePaths: "../test.jpg",
+  //   },
+  // ];
 
   return (
     <div className="mt-2 mb-2 mr-4 ml-4">
@@ -44,9 +44,9 @@ const AllProducts = () => {
 
           {/* To display the image of the product */}
           {typeof product.imagePaths === "string" ? (
-            <img src={product.imagePaths} />
+            <img src={product.imagePaths} alt="تصویر محصول" />
           ) : (
-            <img src={product.imagePaths[0]} />
+            <img src={product.imagePaths[0]} alt="تصویر محصول" />
           )}
         </div>
       ))}
@@ -55,6 +55,13 @@ const AllProducts = () => {
 };
 
 // to load the products
-export async function loader() {}
+export async function postsLoader() {
+  const POSTS_URL = process.env.REACT_APP_API_BASE_URL + "/panel/posts";
+  try {
+    const response = await api.get(POSTS_URL);
+  } catch (error) {
+    console.log("خطا در بارگذاری محصولات " + error);
+  }
+}
 
 export default AllProducts;

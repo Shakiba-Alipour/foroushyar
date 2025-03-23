@@ -3,19 +3,46 @@ import { CloseCircleOutlined } from "@ant-design/icons";
 import { Form } from "react-router-dom";
 import { useRef } from "react";
 import CancelSaveButton from "../../../components/CancelSaveButton";
+import api from "../../../api/auth";
+import {
+  RootState,
+  useAppDispatch,
+  useAppSelector,
+} from "../../../store/store";
+import { authActions } from "../../../store/authSlice";
 
 const PriceForm = ({
   isDrawerOpen,
   setIsDrawerOpen,
+  defaultValue,
 }: {
   isDrawerOpen: boolean;
   setIsDrawerOpen: (isDrawerOpen: boolean) => void;
+  defaultValue: string;
 }) => {
+  const user = useAppSelector((state: RootState) => state.auth.user);
+  const dispatch = useAppDispatch();
+
   // reference to user input
   const price = useRef<InputRef>(null);
 
   // to update product price
-  const updatePriceHandler = (value: string) => {};
+  const updatePriceHandler = async (value: string) => {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL + "/panel/user";
+    try {
+      // to save in the database
+      const response = await api.put(BASE_URL, { phone_panel: value });
+      if (response.data) {
+        // to save in the store
+        dispatch(authActions.update({ phone_panel: value }));
+
+        // to save in the local storage
+        localStorage.setItem("phone_panel", value);
+      }
+    } catch (error) {
+      console.log("خطا در ثبت قیمت محصول " + error);
+    }
+  };
 
   return (
     <Drawer
@@ -41,13 +68,14 @@ const PriceForm = ({
         {/* the title */}
         <p className="text-xl font-bold text-Text+Icon-01">قیمت محصول</p>
         {/* the form */}
-        <Form method="POST" className="mt-4 flex-grow">
+        <Form className="mt-4 flex-grow">
           <Input
             name="price"
             required
             suffix="تومان"
             type="number"
             ref={price}
+            defaultValue={Number(defaultValue)}
             className="w-full mt-2 mb-2 p-3 border border-Text+Icon-04 focus:outline-none font-bold rounded-rounded-6"
           />
         </Form>
@@ -59,7 +87,9 @@ const PriceForm = ({
           whiteButtonLabel="لغو"
           redButtonLabel="ذخیره"
           onWhiteClick={() => setIsDrawerOpen(false)}
-          onRedClick={() => {}}
+          onRedClick={() =>
+            updatePriceHandler(price.current?.input?.value ?? defaultValue)
+          }
         />
       </div>
     </Drawer>

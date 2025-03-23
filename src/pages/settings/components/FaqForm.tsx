@@ -4,17 +4,21 @@ import { Form } from "react-router-dom";
 import { useRef } from "react";
 import CancelSaveButton from "../../../components/CancelSaveButton";
 import TextArea, { TextAreaRef } from "antd/es/input/TextArea";
+import api from "../../../api/auth";
+import Notification from "../../../components/Notification";
 
 const FaqForm = ({
   isDrawerOpen,
   setIsDrawerOpen,
   loadedQuestion,
   loadedAnswer,
+  faq_id,
 }: {
   isDrawerOpen: boolean;
   setIsDrawerOpen: (isDrawerOpen: boolean) => void;
   loadedQuestion?: string;
   loadedAnswer?: string;
+  faq_id?: number;
 }) => {
   // reference to user inputs
   const question = useRef<InputRef>(null);
@@ -72,7 +76,13 @@ const FaqForm = ({
           whiteButtonLabel="لغو"
           redButtonLabel="ذخیره"
           onWhiteClick={() => setIsDrawerOpen(false)}
-          onRedClick={() => {}}
+          onRedClick={() =>
+            SaveFaqHandler(
+              question.current?.input?.value || "",
+              answer.current?.resizableTextArea?.textArea.value || "",
+              null
+            )
+          }
         />
       </div>
     </Drawer>
@@ -80,6 +90,37 @@ const FaqForm = ({
 };
 
 // to save the entered data to the backend
-export function action() {}
+export async function SaveFaqHandler(
+  question: string,
+  answer: string,
+  faq_id?: number | null
+) {
+  const FAQ_BASE_URL = process.env.REACT_APP_API_BASE_URL + "/panel/faq";
+  let response;
+
+  try {
+    // if no id is available, a new faq must be created
+    if (!faq_id) {
+      response = await api.post(FAQ_BASE_URL, {
+        question: question,
+        answer: answer,
+      });
+    }
+    // if an id is available, it must be updated
+    else {
+      response = await api.put(`${FAQ_BASE_URL}/${faq_id}`, {
+        question: question,
+        answer: answer,
+      });
+    }
+    if (response) {
+      console.log("پیام با موفقیت ثبت شد");
+      // <Notification isSuccessful text="سوال با موفقیت اضافه شد" />;
+      // Notification({ isSuccessful: true, text: "سوال با موفقیت اضافه شد" });
+    }
+  } catch (error) {
+    console.log("خطا در ثبت سوال متداول " + error);
+  }
+}
 
 export default FaqForm;

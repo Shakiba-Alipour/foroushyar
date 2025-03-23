@@ -5,11 +5,7 @@ import Delete_Icon from "../../../assets/Delete_Icon";
 import NewQuestion from "./NewQuestion";
 import ConfirmationModal from "../../../components/ConfirmationModal";
 import { useState } from "react";
-
-const dataSource: readonly any[] | undefined = [
-  { key: 1, question: "چگونه می‌توانم محصول را در دیوار خریداری کنم؟" },
-  { key: 2, question: "چگونه می‌توانم محصول را در دیوار خریداری کنم؟" },
-];
+import api from "../../../api/auth";
 
 const DisplayLoadedFaq = ({
   isDrawerOpen,
@@ -43,16 +39,7 @@ const DisplayLoadedFaq = ({
   ];
 
   // To load the data
-  const data = useLoaderData();
-
-  // if no questions had been entered before
-  // if (!Array.isArray(data) || data.length === 0) {
-  //   return (
-  //     <p className="text-Neutral-LineDark flex justify-center m-4 align-middle">
-  //       هیچ سوالی وجود ندارد
-  //     </p>
-  //   );
-  // }
+  const dataSource = useLoaderData();
 
   //   if a list of questions is available
   return (
@@ -86,6 +73,26 @@ const DisplayLoadedFaq = ({
 };
 
 // to load questions
-export async function loader() {}
+export async function faqLoader() {
+  const FAQ_BASE_URL = process.env.REACT_APP_API_BASE_URL + "/panel/faq/user";
+  const response = await api.get(FAQ_BASE_URL);
+  if (response) {
+    let dataSource = [];
+
+    response.data.data.map(
+      ({
+        faq_id,
+        question,
+        answer,
+      }: {
+        faq_id: number;
+        question: string;
+        answer: string;
+      }) => {
+        dataSource.push({ key: faq_id, question: question, answer: answer });
+      }
+    );
+  }
+}
 
 export default DisplayLoadedFaq;

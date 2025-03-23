@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import { Outlet } from "react-router-dom";
-import { RootState } from "../store/store";
+import { RootState, useAppSelector } from "../store/store";
 import Credential from "../components/Credential";
-import { useDispatch, useSelector } from "react-redux";
 
 // a layout that contains header, menu, and page content
 // menu is sticked to the bottom of the screen in mobile devices
@@ -14,10 +13,8 @@ const Layout = () => {
   const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
 
   // to access the redux store
-  // const token = useAppSelector((state) => state.auth.token);
+  const token = useAppSelector((state: RootState) => state.auth.token);
 
-  const token = useSelector((state: RootState) => state.auth.token);
-  const dispatch = useDispatch();
   useEffect(() => {
     if (token) {
       setIsUserAuthenticated(true);

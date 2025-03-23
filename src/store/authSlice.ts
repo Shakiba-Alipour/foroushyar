@@ -10,9 +10,9 @@ export interface User {
   phone: string;
   instagram_id: string;
   website_url: string;
-  send_social: string;
-  send_contact: string;
-  has_follow_up_message: string;
+  send_social: boolean;
+  send_contact: boolean;
+  has_follow_up_message: boolean;
   followup_message: string;
   welcome_message: string;
 }
@@ -33,9 +33,11 @@ const initialState: AuthState = {
     phone: localStorage.getItem("phone") || "",
     instagram_id: localStorage.getItem("instagram_id") || "",
     website_url: localStorage.getItem("website_url") || "",
-    send_social: localStorage.getItem("send_social") || "",
-    send_contact: localStorage.getItem("send_contact") || "",
-    has_follow_up_message: localStorage.getItem("has_follow_up_message") || "",
+    send_social: JSON.parse(localStorage.getItem("send_social") || "false"),
+    send_contact: JSON.parse(localStorage.getItem("send_contact") || "false"),
+    has_follow_up_message: JSON.parse(
+      localStorage.getItem("has_follow_up_message") || "false"
+    ),
     followup_message: localStorage.getItem("followup_message") || "",
     welcome_message: localStorage.getItem("welcome_message") || "",
   },
@@ -57,17 +59,10 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
     },
-    update: (state, action: PayloadAction<{ user: User }>) => {
-      // to update user data in the redux store
-      // Object.assign(state.user, action.payload) updates only the fields provided
-      // in action.payload without replacing the whole user object.
+    update: (state, action: PayloadAction<Partial<User>>) => {
+      // to update user partially
       if (state.user) {
-        // Object.entries(action.payload.user).forEach(([key, value]) => {
-        //   if (value !== null) {
-        //     (state.user as any)[key] = value;
-        //   }
-        // });
-        state.user = action.payload.user;
+        state.user = { ...state.user, ...action.payload };
       }
     },
   },

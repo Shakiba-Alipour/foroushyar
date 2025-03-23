@@ -32,10 +32,8 @@ const Field: React.FC<FieldProps> = ({
   const inputChangeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const newValue =
-      type === "number" ? Number(e.target.value) : e.target.value;
     // setValue(newValue);
-    onChange(id, newValue);
+    onChange(id, e.target.value);
   };
 
   const isTextarea = type === "textarea";

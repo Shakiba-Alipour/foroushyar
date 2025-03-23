@@ -3,15 +3,15 @@ import ForoushyarLogo from "../../assets/Logo";
 import { useEffect } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
-import { AppDispatch, RootState } from "../../store/store";
+// import { AppDispatch, RootState } from "../../store/store";l
 import { authActions } from "../../store/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store/store";
 
 // This is a loading page which is displayed while the user is in the authentication process
 const CallbackPage = () => {
   // to access the store and state
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
   // To access search parameters
   const [searchParams] = useSearchParams();

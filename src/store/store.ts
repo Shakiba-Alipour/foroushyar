@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer, { authActions } from "./authSlice";
-// import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Middleware } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
 const localStorageMiddleware: Middleware = (store) => (next) => (action) => {
   // to run the action in redux
@@ -13,7 +12,7 @@ const localStorageMiddleware: Middleware = (store) => (next) => (action) => {
   const token = state.auth.token;
 
   if (user.id && token) {
-    store.dispatch(authActions.update({ user: user }));
+    store.dispatch(authActions.update({ ...user }));
   }
 
   if (!user || !token) {
@@ -27,10 +26,11 @@ const localStorageMiddleware: Middleware = (store) => (next) => (action) => {
       phone: localStorage.getItem("phone") || "",
       instagram_id: localStorage.getItem("instagram_id") || "",
       website_url: localStorage.getItem("website_url") || "",
-      send_social: localStorage.getItem("send_social") || "",
-      send_contact: localStorage.getItem("send_contact") || "",
-      has_follow_up_message:
-        localStorage.getItem("has_follow_up_message") || "",
+      send_social: JSON.parse(localStorage.getItem("send_social") || "false"),
+      send_contact: JSON.parse(localStorage.getItem("send_contact") || "false"),
+      has_follow_up_message: JSON.parse(
+        localStorage.getItem("has_follow_up_message") || "false"
+      ),
       followup_message: localStorage.getItem("followup_message") || "",
       welcome_message: localStorage.getItem("welcome_message") || "",
     };
@@ -58,7 +58,9 @@ export type AppStore = typeof store;
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch();
+export const useAppSelector = useSelector;
 
 // Created typed versions of the useDispatch and useSelector hooks to not
 // to import the RootState and AppDispatch types into each component

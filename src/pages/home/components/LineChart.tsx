@@ -1,19 +1,33 @@
 import Chart from "react-google-charts";
 
-// interface Props {
-//   colors: string[];
-// }
+const LineChart: React.FC<{ className: string }> = ({ className }) => {
+  const data = [
+    ["Year", "پاسخ چت ربات", "پاسخ چت خودم"],
+    ["2013", 1000, 400],
+    ["2014", 1170, 460],
+    ["2015", 660, 1120],
+    ["2016", 1030, 540],
+  ];
 
-const LineChart: React.FC = () => {
   let options = {
-    title: "فعالیت چت",
-    isStacked: true,
-    colors: "#000000",
-    areaOpacity: 0.8,
-    chartArea: { width: "100%", height: "70%" },
+    legend: {
+      position: "top",
+      alignment: "center",
+      textStyle: { bold: true },
+    },
+    colors: ["#4ECB73", "#0086FA"],
+    areaOpacity: 0.5,
+    chartArea: { width: "80%", height: "70%", top: 50, bottom: 40 },
   };
 
-  return <Chart chartType="AreaChart" />;
+  return (
+    <div className={`flex flex-col items-end ${className}`}>
+      <p className="text-lg font-semibold flex items-center gap-1 w-full text-right px-4">
+        فعالیت چت
+      </p>
+      <Chart chartType="AreaChart" data={data} options={options} width="100%" />
+    </div>
+  );
 };
 
 export default LineChart;

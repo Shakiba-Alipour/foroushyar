@@ -11,7 +11,7 @@ import PriceForm from "./PriceForm";
 interface UserInputProps {
   title: string;
   type: "number" | "textArea" | "addon";
-  value: number | string | ProductProps[];
+  value: string | ProductProps[];
 }
 
 const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
@@ -39,6 +39,7 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
           <PriceForm
             isDrawerOpen={isEditDrawerOpen}
             setIsDrawerOpen={setIsEditDrawerOpen}
+            defaultValue={value.toString()}
           />
         );
 
@@ -66,7 +67,9 @@ const UserInput: React.FC<UserInputProps> = ({ title, type, value }) => {
     "w-full mt-2 mb-4 text-Text+Icon-01 bg-Neutral-BaseBackground rounded-rounded-6 border-none justify-center";
 
   if (type === "number" && typeof value === "number") {
-    input = <Input className={className} suffix="تومان" value={value} />;
+    input = (
+      <Input className={className} suffix="تومان" value={Number(value)} />
+    );
   } else if (type === "textArea" && typeof value === "string") {
     input = <TextArea className={className} value={value} />;
   } else if (type === "addon" && Array.isArray(value)) {

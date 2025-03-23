@@ -8,6 +8,11 @@ import Notification from "../../components/Notification";
 
 const BulkMessagingPage = () => {
   const [step, setStep] = useState(25);
+  const [messageData, setMessageData] = useState({
+    title: "",
+    content: "",
+    products: null,
+  });
 
   // To handle click on prev button
   const PrevClickHandler = (prevStep: number) => {
